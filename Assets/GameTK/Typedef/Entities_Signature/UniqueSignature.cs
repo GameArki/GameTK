@@ -6,18 +6,18 @@ namespace NJM {
     [StructLayout(LayoutKind.Explicit)]
     public struct UniqueSignature : IEquatable<UniqueSignature> {
 
-        public static UniqueSignature Zero = new UniqueSignature(EntityType.None, 0);
+        public static UniqueSignature Zero = new UniqueSignature(0, 0);
 
         [FieldOffset(0)]
         public ulong value;
 
         [FieldOffset(0)]
-        public EntityType entityType;
+        public int entityType;
 
         [FieldOffset(4)]
         public int id;
 
-        public UniqueSignature(EntityType entityType, int entityID) {
+        public UniqueSignature(int entityType, int entityID) {
             value = 0;
             this.entityType = entityType;
             this.id = entityID;
