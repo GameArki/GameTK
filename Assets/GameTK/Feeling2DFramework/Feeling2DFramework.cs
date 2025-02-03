@@ -179,8 +179,16 @@ namespace NJM {
         #endregion
 
         #region API: Sound
+        public void Sound_Play(SoundModuleSO soundModuleSO, UniqueSignature belong, Vector2 happenPos) {
+            Sound_Play(soundModuleSO.typeID, belong, happenPos);
+        }
+
         public void Sound_Play(int typeID, UniqueSignature belong, Vector2 happenPos) {
             ctx.soundModule.Play(typeID, belong, happenPos);
+        }
+
+        public void Sound_Pause(SoundModuleSO soundModuleSO, UniqueSignature belong) {
+            Sound_Pause(soundModuleSO.typeID, belong);
         }
 
         public void Sound_Pause(int typeID, UniqueSignature belong) {
