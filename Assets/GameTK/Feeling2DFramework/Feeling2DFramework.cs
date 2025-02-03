@@ -180,7 +180,7 @@ namespace NJM {
 
         #region API: Sound
         public void Sound_Play(SoundModuleSO soundModuleSO, UniqueSignature belong, Vector2 happenPos) {
-            Sound_Play(soundModuleSO.typeID, belong, happenPos);
+            ctx.soundModule.Play(soundModuleSO, belong, happenPos);
         }
 
         public void Sound_Play(int typeID, UniqueSignature belong, Vector2 happenPos) {

@@ -16,14 +16,20 @@ namespace NJM.Modules_VFX {
         }
 
         public async Task LoadAll() {
-            const string LABEL = "VFX";
-            var asyncOperationHandle = Addressables.LoadAssetsAsync<GameObject>(LABEL, null);
-            var list = await asyncOperationHandle.Task;
-            foreach (var item in list) {
-                var sm = item.GetComponent<VFXModuleSM>();
-                all.Add(sm.typeID, sm);
+            try {
+                const string LABEL = "VFX";
+                var asyncOperationHandle = Addressables.LoadAssetsAsync<GameObject>(LABEL, null);
+                var list = await asyncOperationHandle.Task;
+                foreach (var item in list) {
+                    var sm = item.GetComponent<VFXModuleSM>();
+                    all.Add(sm.typeID, sm);
+                }
+                Addressables.Release(asyncOperationHandle);
+            } catch (InvalidKeyException e) {
+                Debug.LogWarning(e);
+            } catch (Exception e) {
+                Debug.LogError(e);
             }
-            Addressables.Release(asyncOperationHandle);
         }
 
         public bool TryGet(int typeID, out VFXModuleSM sfxSO) {
