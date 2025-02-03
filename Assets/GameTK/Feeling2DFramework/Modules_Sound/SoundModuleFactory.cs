@@ -5,18 +5,18 @@ namespace NJM.Modules_Sound {
 
     public static class SoundModuleFactory {
 
-        public static SoundModuleEntity Create(SoundModuleContext ctx, SoundModuleSO so, UniqueSignature belong, Vector2 happenPos) {
+        public static SoundModuleEntity Create(SoundModuleContext ctx, SoundModuleTM tm, UniqueSignature belong, Vector2 happenPos) {
             var entity = ctx.pool_entity.Get();
             entity.id = ++ctx.idRecord;
-            entity.typeID = so.typeID;
+            entity.typeID = tm.typeID;
             entity.belong = belong;
-            entity.layer = so.layer;
-            entity.isLoop = so.isLoop;
-            entity.isFollowBelong = so.isFollowBelong;
+            entity.layer = tm.layer;
+            entity.isLoop = tm.isLoop;
+            entity.isFollowBelong = tm.isFollowBelong;
             entity.happenPos = happenPos;
-            entity.clip = so.clip;
-            entity.isEffectByDistance = so.isEffectByDistance;
-            entity.volumePercent = so.volumePercent;
+            entity.clip = tm.clip;
+            entity.isEffectByDistance = tm.isEffectByDistance;
+            entity.volumePercent = tm.volumePercent;
             entity.player = CreateSource(ctx);
             return entity;
         }
@@ -27,7 +27,7 @@ namespace NJM.Modules_Sound {
                 Debug.LogError($"SoundModule.Create: typeID={typeID} not found");
                 return null;
             }
-            return Create(ctx, sfxSO, belong, happenPos);
+            return Create(ctx, sfxSO.tm, belong, happenPos);
         }
 
         public static AudioSource CreateSource(SoundModuleContext ctx) {

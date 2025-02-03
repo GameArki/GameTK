@@ -43,8 +43,8 @@ namespace NJM.Template {
         [ShowIf(nameof(hasVFX))] public VFXModuleSM[] vfxs;
 
         // - SFX
-        public bool hasSFX;
-        [ShowIf(nameof(hasSFX))] public SoundModuleSO[] sfxs;
+        public bool hasSound;
+        [ShowIf(nameof(hasSound))] public SoundModuleTM[] sounds;
 
         // - Rumble
         public bool hasRumble;

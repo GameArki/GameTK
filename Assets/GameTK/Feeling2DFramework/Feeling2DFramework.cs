@@ -81,6 +81,10 @@ namespace NJM {
         #endregion
 
         #region API: Framework
+        public void Feeling_ActWithoutBelong(Vector2 pos, FeelingSO feelingSO) {
+            Feeling_Act(UniqueSignature.Zero, pos, feelingSO.tm);
+        }
+
         public void Feeling_Act(UniqueSignature belongUniqueSig, Vector2 pos, FeelingSO feelingSO) {
             if (feelingSO == null) {
                 FFWLog.LogError("FeelingSO is null");
@@ -111,9 +115,9 @@ namespace NJM {
                                                tm.cameraZoomInAutoRestoreDelayFrameCount * logicFPS);
             }
 
-            if (tm.hasSFX) {
-                foreach (var sfxSO in tm.sfxs) {
-                    ctx.soundModule.Play(sfxSO, belongUniqueSig, pos);
+            if (tm.hasSound) {
+                foreach (var soundTM in tm.sounds) {
+                    ctx.soundModule.Play(soundTM, belongUniqueSig, pos);
                 }
             }
 
@@ -131,8 +135,8 @@ namespace NJM {
         }
 
         public void Feeling_Stop(UniqueSignature belong, in FeelingTM tm) {
-            if (tm.hasSFX) {
-                foreach (var sfx in tm.sfxs) {
+            if (tm.hasSound) {
+                foreach (var sfx in tm.sounds) {
                     ctx.soundModule.DestroyBelong(belong);
                 }
             }
@@ -182,7 +186,7 @@ namespace NJM {
 
         #region API: Sound
         public void Sound_Play(SoundModuleSO soundModuleSO, UniqueSignature belong, Vector2 happenPos) {
-            ctx.soundModule.Play(soundModuleSO, belong, happenPos);
+            ctx.soundModule.Play(soundModuleSO.tm, belong, happenPos);
         }
 
         public void Sound_Play(int typeID, UniqueSignature belong, Vector2 happenPos) {
@@ -190,7 +194,7 @@ namespace NJM {
         }
 
         public void Sound_Pause(SoundModuleSO soundModuleSO, UniqueSignature belong) {
-            Sound_Pause(soundModuleSO.typeID, belong);
+            Sound_Pause(soundModuleSO.tm.typeID, belong);
         }
 
         public void Sound_Pause(int typeID, UniqueSignature belong) {

@@ -16,13 +16,19 @@ namespace NJM.Modules_Sound {
         }
 
         public async Task LoadAll() {
-            const string LABEL = "Sound";
-            var asyncOperationHandle = Addressables.LoadAssetsAsync<SoundModuleSO>(LABEL, null);
-            var list = await asyncOperationHandle.Task;
-            foreach (var item in list) {
-                all.Add(item.typeID, item);
+            try {
+                const string LABEL = "Sound";
+                var asyncOperationHandle = Addressables.LoadAssetsAsync<SoundModuleSO>(LABEL, null);
+                var list = await asyncOperationHandle.Task;
+                foreach (var item in list) {
+                    all.Add(item.tm.typeID, item);
+                }
+                Addressables.Release(asyncOperationHandle);
+            } catch (InvalidKeyException) {
+
+            } catch (Exception e) {
+                Debug.LogError(e);
             }
-            Addressables.Release(asyncOperationHandle);
         }
 
         public bool TryGet(int typeID, out SoundModuleSO sfxSO) {

@@ -42,8 +42,8 @@ namespace NJM {
         public VFXModuleSM[] vfxs;
 
         // - SFX
-        public bool hasSFX;
-        public SoundModuleSO[] sfxs;
+        public bool hasSound;
+        public SoundModuleTM[] sounds;
 
         // - Rumble
         public bool hasRumble;
@@ -81,8 +81,8 @@ namespace NJM {
             hasVFX = tm.hasVFX;
             vfxs = tm.vfxs;
 
-            hasSFX = tm.hasSFX;
-            sfxs = tm.sfxs;
+            hasSound = tm.hasSound;
+            sounds = tm.sounds;
 
             hasRumble = tm.hasRumble;
             leftRumbleDuration = tm.leftRumbleDuration;
