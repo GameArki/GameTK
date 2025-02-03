@@ -22,6 +22,11 @@ namespace NJM.Modules_Sound {
 
         public AudioSource player;
 
+        // - Fadeout
+        public bool isFadingOut;
+        public float fadeOutDuration;
+        public float fadeOutTimer;
+
         public SoundModuleEntity() { }
 
         public void Release() {
@@ -31,6 +36,10 @@ namespace NJM.Modules_Sound {
             player.loop = false;
             player = null;
             clip = null;
+
+            isFadingOut = false;
+            fadeOutDuration = 0;
+            fadeOutTimer = 0;
         }
 
         public void Play(float settingVolume) {
@@ -42,6 +51,27 @@ namespace NJM.Modules_Sound {
             } else {
                 player.UnPause();
             }
+        }
+
+        public void FadeOut_Tick(float dt) {
+            if (!isFadingOut) {
+                return;
+            }
+
+            fadeOutTimer -= dt;
+            if (fadeOutTimer <= 0) {
+                player.Stop();
+                isFadingOut = false;
+                fadeOutTimer = 0;
+            } else {
+                player.volume = volumePercent * (fadeOutTimer / fadeOutDuration);
+            }
+        }
+
+        public void FadeOut_Begin(float duration) {
+            isFadingOut = true;
+            fadeOutDuration = duration;
+            fadeOutTimer = duration;
         }
 
         public void Pause() {

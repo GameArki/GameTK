@@ -195,6 +195,10 @@ namespace NJM {
             ctx.soundModule.Pause(typeID, belong);
         }
 
+        public void Sound_StopAllBGM(float fadeOutDuration) {
+            ctx.soundModule.BGM_StopAll(fadeOutDuration);
+        }
+
         public void Sound_PauseAllBGM() {
             ctx.soundModule.BGM_PauseAll();
         }

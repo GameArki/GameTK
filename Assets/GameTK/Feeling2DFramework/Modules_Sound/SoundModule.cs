@@ -70,6 +70,16 @@ namespace NJM {
             entity.Pause();
         }
 
+        public void BGM_StopAll(float fadeOutDuration) {
+            int len = ctx.repo.TakeAll(out var array);
+            for (int i = 0; i < len; i++) {
+                var entity = array[i];
+                if (entity.layer.IsBGM()) {
+                    entity.FadeOut_Begin(fadeOutDuration);
+                }
+            }
+        }
+
         public void BGM_PauseAll() {
             int len = ctx.repo.TakeAll(out var array);
             for (int i = 0; i < len; i++) {
@@ -124,6 +134,7 @@ namespace NJM {
             int len = ctx.repo.TakeAll(out var array);
             for (int i = 0; i < len; i++) {
                 var entity = array[i];
+                entity.FadeOut_Tick(dt);
                 if (!entity.isLoop) {
                     if (!entity.IsPlaying()) {
                         ctx.repo.Remove(entity.id);
