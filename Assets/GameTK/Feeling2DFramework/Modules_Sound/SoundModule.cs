@@ -46,7 +46,7 @@ namespace NJM {
                 }
             }
 
-            SoundModuleEntity entity = SoundModuleFactory.Create(ctx, so.typeID, belong, happenPos);
+            SoundModuleEntity entity = SoundModuleFactory.Create(ctx, so, belong, happenPos);
             if (entity == null) {
                 return;
             }
