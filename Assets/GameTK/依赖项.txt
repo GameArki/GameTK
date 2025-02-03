@@ -1,0 +1,2 @@
+"com.codewriter.triinspector": "ssh://git@github.com/codewriter-packages/Tri-Inspector.git",
+"com.gamearki.gamefunctions": "ssh://git@github.com/gamearki/gamefunctions.git?path=Assets",

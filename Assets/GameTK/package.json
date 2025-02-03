@@ -1,0 +1,24 @@
+{
+  "name": "com.gamearki.gametk",
+  "version": "0.0.1",
+  "description": "Toolkit式框架\r\n依赖: TriInspector、GameArki.GameFunctions",
+  "displayName": "GameArki.GameTK",
+  "unity": "2022.3",
+  "author": {
+    "name": "GameArki",
+    "email": "chenwansal1@163.com",
+    "url": "https://www.github.com/gamearki"
+  },
+  "changelogUrl": "",
+  "dependencies": {
+    "com.unity.addressables": "1.21.21",
+    "com.unity.render-pipelines.core": "14.0.10",
+    "com.unity.render-pipelines.universal": "14.0.10"
+  },
+  "documentationUrl": "",
+  "hideInEditor": false,
+  "keywords": [],
+  "license": "",
+  "licensesUrl": "",
+  "samples": []
+}

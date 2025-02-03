@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.codewriter.triinspector": "ssh://git@github.com/codewriter-packages/Tri-Inspector.git",
     "com.gamearki.gamefunctions": "ssh://git@github.com/gamearki/gamefunctions.git?path=Assets",
     "com.unity.addressables": "1.21.21",
     "com.unity.collab-proxy": "2.5.2",
