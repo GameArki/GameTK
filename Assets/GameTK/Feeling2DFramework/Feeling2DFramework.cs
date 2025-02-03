@@ -5,8 +5,6 @@ using UnityEngine.Rendering;
 using System.Threading.Tasks;
 using UnityEditor;
 using NJM.Template;
-using UnityEngine.UIElements;
-using UnityEditor.PackageManager;
 
 namespace NJM {
 
@@ -59,8 +57,8 @@ namespace NJM {
 
         }
 
-        public async Task InitAsync(LogLevel logLevel) {
-            FFWLog.logLevel = logLevel;
+        public async Task InitAsync(int enum_logLevel) {
+            FFWLog.logLevel = enum_logLevel;
             ctx.cameraModule.Init();
             await ctx.soundModule.InitAsync();
             await ctx.vfxModule.InitAsync();
@@ -219,6 +217,12 @@ namespace NJM {
 
         public void Sound_DestroyBelong(UniqueSignature belong) {
             ctx.soundModule.DestroyBelong(belong);
+        }
+        #endregion
+
+        #region API: VFX
+        public void VFX_DestroyBelong(UniqueSignature belong) {
+            ctx.vfxModule.UnspawnBelong(belong);
         }
         #endregion
 
