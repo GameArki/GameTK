@@ -86,57 +86,53 @@ namespace NJM {
                 FFWLog.LogError("FeelingSO is null");
                 return;
             }
-            FeelingModel feelingModel = new FeelingModel();
-            feelingModel.FromTM(feelingSO.tm);
-            Feeling_Act(belongUniqueSig, pos, feelingModel);
+            Feeling_Act(belongUniqueSig, pos, feelingSO.tm);
         }
 
-        public void Feeling_Act(UniqueSignature belongUniqueSig, Vector2 pos, in FeelingModel feelingModel) {
+        public void Feeling_Act(UniqueSignature belongUniqueSig, Vector2 pos, in FeelingTM tm) {
 
-            if (feelingModel.hasVFX) {
-                foreach (var vfx in feelingModel.vfxs) {
-                    ctx.vfxModule.Spawn(vfx.typeID, belongUniqueSig, pos);
+            if (tm.hasVFX) {
+                foreach (var vfx in tm.vfxs) {
+                    ctx.vfxModule.Spawn(vfx, belongUniqueSig, pos);
                 }
             }
 
-            if (feelingModel.hasCameraShake) {
-                ctx.rendererModule.ShakeScreen_Begin(feelingModel.cameraShakeAmplitude, feelingModel.cameraShakeFrequency, feelingModel.cameraShakeDuration);
+            if (tm.hasCameraShake) {
+                ctx.rendererModule.ShakeScreen_Begin(tm.cameraShakeAmplitude, tm.cameraShakeFrequency, tm.cameraShakeDuration);
             }
 
-            if (feelingModel.hasCameraZoomIn) {
+            if (tm.hasCameraZoomIn) {
                 const float logicFPS = 1 / 24f;
-                ctx.cameraModule.Effect_ZoomIn(feelingModel.cameraZoomInEasingType, feelingModel.cameraZoomInMultiplier,
-                                               feelingModel.cameraZoomInDurationFrameCount * logicFPS,
-                                               feelingModel.isCameraZoomInAutoRestore,
-                                               feelingModel.cameraZoomInAutoRestoreEasingType,
-                                               feelingModel.cameraZoomInAutoRestoreDurationFrameCount * logicFPS,
-                                               feelingModel.cameraZoomInAutoRestoreDelayFrameCount * logicFPS);
+                ctx.cameraModule.Effect_ZoomIn(tm.cameraZoomInEasingType, tm.cameraZoomInMultiplier,
+                                               tm.cameraZoomInFrameCount * logicFPS,
+                                               tm.isCameraZoomInAutoRestore,
+                                               tm.cameraZoomInAutoRestoreEasingType,
+                                               tm.cameraZoomInAutoRestoreFrameCount * logicFPS,
+                                               tm.cameraZoomInAutoRestoreDelayFrameCount * logicFPS);
             }
 
-            if (feelingModel.hasSFX) {
-                foreach (var sfxSO in feelingModel.sfxs) {
-                    ctx.soundModule.Play(sfxSO.typeID, belongUniqueSig, pos);
+            if (tm.hasSFX) {
+                foreach (var sfxSO in tm.sfxs) {
+                    ctx.soundModule.Play(sfxSO, belongUniqueSig, pos);
                 }
             }
 
-            if (feelingModel.isPPFilmBorderFadeIn) {
+            if (tm.isPPFilmBorderFadeIn) {
                 ctx.rendererModule.FilmBorder_DefaultFadeIn();
             }
 
-            if (feelingModel.isPPFilmBorderFadeOut) {
+            if (tm.isPPFilmBorderFadeOut) {
                 ctx.rendererModule.FilmBorder_DefaultFadeOut();
             }
         }
 
         public void Feeling_Stop(UniqueSignature belongUniqueSig, FeelingSO feelingSO) {
-            FeelingModel feelingModel = new FeelingModel();
-            feelingModel.FromTM(feelingSO.tm);
-            Feeling_Stop(belongUniqueSig, feelingModel);
+            Feeling_Stop(belongUniqueSig, feelingSO.tm);
         }
 
-        public void Feeling_Stop(UniqueSignature belong, in FeelingModel model) {
-            if (model.hasSFX) {
-                foreach (var sfx in model.sfxs) {
+        public void Feeling_Stop(UniqueSignature belong, in FeelingTM tm) {
+            if (tm.hasSFX) {
+                foreach (var sfx in tm.sfxs) {
                     ctx.soundModule.DestroyBelong(belong);
                 }
             }

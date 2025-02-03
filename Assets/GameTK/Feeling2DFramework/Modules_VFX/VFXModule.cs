@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using NJM.Modules_VFX;
+using UnityEditor;
 
 namespace NJM {
 
@@ -32,6 +33,10 @@ namespace NJM {
         }
 
         #region Lifecycle
+        public VFXModuleSM Spawn(VFXModuleSM prefab, UniqueSignature belong, Vector2 pos) {
+            return Spawn(prefab.typeID, belong, pos);
+        }
+
         public VFXModuleSM Spawn(int typeID, UniqueSignature belong, Vector2 pos) {
             if (ctx.vfxRepo.IsExistLoop(typeID, belong)) {
                 return null;
