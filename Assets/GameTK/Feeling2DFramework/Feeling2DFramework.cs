@@ -186,6 +186,10 @@ namespace NJM {
 
         #region API: Sound
         public void Sound_Play(SoundModuleSO soundModuleSO, UniqueSignature belong, Vector2 happenPos) {
+            if (soundModuleSO == null) {
+                FFWLog.LogError("SoundModuleSO is null");
+                return;
+            }
             ctx.soundModule.Play(soundModuleSO.tm, belong, happenPos);
         }
 
