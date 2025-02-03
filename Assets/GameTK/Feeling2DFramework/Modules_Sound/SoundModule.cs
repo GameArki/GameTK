@@ -70,6 +70,26 @@ namespace NJM {
             entity.Pause();
         }
 
+        public void BGM_PauseAll() {
+            int len = ctx.repo.TakeAll(out var array);
+            for (int i = 0; i < len; i++) {
+                var entity = array[i];
+                if (entity.layer.IsBGM()) {
+                    entity.Pause();
+                }
+            }
+        }
+
+        public void BGM_ResumeAll() {
+            int len = ctx.repo.TakeAll(out var array);
+            for (int i = 0; i < len; i++) {
+                var entity = array[i];
+                if (entity.layer.IsBGM()) {
+                    entity.Play(GetVolume(entity));
+                }
+            }
+        }
+
         public void DestroyBelong(UniqueSignature belong) {
             int count = ctx.repo.TakeAllBelong(belong, out var array);
             for (int i = 0; i < count; i++) {

@@ -187,6 +187,14 @@ namespace NJM {
             ctx.soundModule.Pause(typeID, belong);
         }
 
+        public void Sound_PauseAllBGM() {
+            ctx.soundModule.BGM_PauseAll();
+        }
+
+        public void Sound_ResumeAllBGM() {
+            ctx.soundModule.BGM_ResumeAll();
+        }
+
         public void Sound_DestroyBelong(UniqueSignature belong) {
             ctx.soundModule.DestroyBelong(belong);
         }

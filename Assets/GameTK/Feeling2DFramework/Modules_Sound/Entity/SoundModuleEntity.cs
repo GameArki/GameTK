@@ -39,6 +39,8 @@ namespace NJM.Modules_Sound {
             player.loop = isLoop;
             if (!player.isPlaying) {
                 player.Play();
+            } else {
+                player.UnPause();
             }
         }
 
