@@ -69,6 +69,13 @@ namespace NJM {
             }
         }
 
+        public void ShakeScreen_Stop() {
+            bool has = volume_global.profile.TryGet<PPShakeScreenVolume>(out var shakeVolume);
+            if (has) {
+                shakeVolume.isEnable.value = false;
+            }
+        }
+
         void ShakeScreen_Tick(float dt) {
             bool has = volume_global.profile.TryGet<PPShakeScreenVolume>(out var volume);
             if (!has) {

@@ -208,6 +208,16 @@ namespace NJM {
         }
         #endregion
 
+        #region API: PP
+        public void PP_ShakeScreen_Begin(Vector2 amplitude, float frequency, float duration) {
+            ctx.rendererModule.ShakeScreen_Begin(amplitude, frequency, duration);
+        }
+
+        public void PP_ShakeScreen_Stop() {
+            ctx.rendererModule.ShakeScreen_Stop();
+        }
+        #endregion
+
     }
 
 }
