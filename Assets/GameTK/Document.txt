@@ -1,1 +1,35 @@
+### 概念
 1. LogicFPS = 1/24f
+2. UniqueSignature
+    - 相当于ID的功能, 由int entityType和int id组成
+    - 游戏内的所有实体都必须有该字段
+
+### 依赖
+"com.codewriter.triinspector": "ssh://git@github.com/codewriter-packages/Tri-Inspector.git",
+"com.gamearki.gamefunctions": "ssh://git@github.com/gamearki/gamefunctions.git?path=Assets",
+
+### 使用说明
+- 主入口
+    1. 在场景添加GameObject, 将脚本 Feeling2DFramework 挂载
+    2. 绑定主相机、子相机（如有）、Global Volume
+    3. 在主入口获取 Feeling2DFramework 组件
+    4. 按顺序调用 Feeling2DFramework 组件的: Ctor(), Inject(), InitAsync()
+    5. 绑定 Feeling2DFramework.Events 
+    6. 在Update周期调用 Feeling2DFramework 的 Tick()
+    7. 在销毁时调用 Feeling2DFramework 的 TearDown
+
+- 核心功能：
+    - 通过CreateAsste菜单, 创建自定义 FeelingSO 文件
+    - 调用Feeling2DFramework.Feeling_Act(FeelingSO), 即可生效
+
+- Sound 模块:
+    - 通过CreateAsste菜单, 创建声音文件 SoundModuleSO
+    - 将声音文件设为Adressables, Label字符串为"Sound"
+
+- VFX 模块
+    - 新增GameObject, 将脚本VFXSM.cs挂载, 制作为Prefab
+    - 将Prefab设为Addressables, Label字符串为"VFX"
+
+- 渲染模块
+    - URP Asset Renderer 文件添加 NJMRP 的 RenderFeature
+    - 场景添加GlobalVolume文件, 并按需添加PP配置

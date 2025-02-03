@@ -16,7 +16,7 @@ namespace NJM.Modules_Sound {
         }
 
         public async Task LoadAll() {
-            const string LABEL = "SFX";
+            const string LABEL = "Sound";
             var asyncOperationHandle = Addressables.LoadAssetsAsync<SoundModuleSO>(LABEL, null);
             var list = await asyncOperationHandle.Task;
             foreach (var item in list) {
