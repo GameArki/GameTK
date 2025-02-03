@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEditor;
 using NJM.Template;
 using UnityEngine.UIElements;
+using UnityEditor.PackageManager;
 
 namespace NJM {
 
@@ -58,7 +59,8 @@ namespace NJM {
 
         }
 
-        public async Task InitAsync() {
+        public async Task InitAsync(LogLevel logLevel) {
+            FFWLog.logLevel = logLevel;
             ctx.cameraModule.Init();
             await ctx.soundModule.InitAsync();
             await ctx.vfxModule.InitAsync();
@@ -80,6 +82,10 @@ namespace NJM {
 
         #region API: Framework
         public void Feeling_Act(UniqueSignature belongUniqueSig, Vector2 pos, FeelingSO feelingSO) {
+            if (feelingSO == null) {
+                FFWLog.LogError("FeelingSO is null");
+                return;
+            }
             FeelingModel feelingModel = new FeelingModel();
             feelingModel.FromTM(feelingSO.tm);
             Feeling_Act(belongUniqueSig, pos, feelingModel);
