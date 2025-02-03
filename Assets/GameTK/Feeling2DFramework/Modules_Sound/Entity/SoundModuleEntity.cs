@@ -42,6 +42,10 @@ namespace NJM.Modules_Sound {
             }
         }
 
+        public void Pause() {
+            player.Pause();
+        }
+
         public bool IsPlaying() {
             return player.isPlaying;
         }

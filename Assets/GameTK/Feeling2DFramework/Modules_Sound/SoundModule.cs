@@ -62,6 +62,14 @@ namespace NJM {
             ctx.repo.Add(entity);
         }
 
+        public void Pause(int typeID, UniqueSignature belong) {
+            bool has = ctx.repo.TryGetByTypeID(typeID, out var entity);
+            if (!has) {
+                return;
+            }
+            entity.Pause();
+        }
+
         public void DestroyBelong(UniqueSignature belong) {
             int count = ctx.repo.TakeAllBelong(belong, out var array);
             for (int i = 0; i < count; i++) {
