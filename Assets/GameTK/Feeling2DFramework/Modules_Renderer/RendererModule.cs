@@ -40,6 +40,7 @@ namespace NJM {
                 bool has = volume_global.profile.TryGet<PPScanLineVolume>(out var scanLineVolume);
                 if (has) {
                     scanLineVolume.active = isEnable;
+                    scanLineVolume.isEnable.value = isEnable;
                 }
             }
             {
@@ -61,6 +62,7 @@ namespace NJM {
         public void ShakeScreen_Begin(Vector2 amplitude, float frequency, float duration) {
             bool has = volume_global.profile.TryGet<PPShakeScreenVolume>(out var shakeVolume);
             if (has) {
+                shakeVolume.active = true;
                 shakeVolume.isEnable.value = true;
                 shakeVolume.amplitude.value = amplitude;
                 shakeVolume.frequency.value = frequency;
@@ -106,6 +108,7 @@ namespace NJM {
                 return;
             }
             if (isEnable) {
+                filmBorderVolume.active = isEnable;
                 filmBorderVolume.isEnable.value = isEnable;
             }
 
