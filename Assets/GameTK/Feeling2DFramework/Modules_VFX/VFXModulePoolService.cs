@@ -7,33 +7,39 @@ namespace NJM.Modules_VFX {
 
     public class VFXModulePoolService {
 
-        public Dictionary<int, Pool<VFXModuleSM>> vfxPool;
+        public Dictionary<ulong, Pool<VFXModuleSM>> vfxPool;
 
         public VFXModulePoolService() {
-            vfxPool = new Dictionary<int, Pool<VFXModuleSM>>();
+            vfxPool = new Dictionary<ulong, Pool<VFXModuleSM>>();
         }
 
-        public void InitVFXSequence(int typeID, int size, Func<VFXModuleSM> createFunc) {
-            if (!vfxPool.TryGetValue(typeID, out var pool)) {
+        public void InitVFXSequence(int typeGorup, int typeID, int size, Func<VFXModuleSM> createFunc) {
+            ulong key = GetKey(typeGorup, typeID);
+            if (!vfxPool.TryGetValue(key, out var pool)) {
                 pool = new Pool<VFXModuleSM>(size, () => createFunc());
-                vfxPool.Add(typeID, pool);
+                vfxPool.Add(key, pool);
             }
         }
 
-        public VFXModuleSM Get(int typeID) {
-            if (!vfxPool.TryGetValue(typeID, out var pool)) {
+        public VFXModuleSM Get(int typeGroup, int typeID) {
+            ulong key = GetKey(typeGroup, typeID);
+            if (!vfxPool.TryGetValue(key, out var pool)) {
                 return null;
             }
             return pool.Get();
         }
 
         public void VFX_Return(VFXModuleSM sm) {
-            var typeID = sm.typeID;
-            if (!vfxPool.TryGetValue(typeID, out var pool)) {
+            ulong key = GetKey(sm.typeGroup, sm.typeID);
+            if (!vfxPool.TryGetValue(key, out var pool)) {
                 pool = new Pool<VFXModuleSM>(1, () => new VFXModuleSM());
-                vfxPool.Add(typeID, pool);
+                vfxPool.Add(key, pool);
             }
             pool.Return(sm);
+        }
+
+        ulong GetKey(int typeGroup, int typeID) {
+            return (ulong)typeGroup << 32 | (uint)typeID;
         }
 
     }

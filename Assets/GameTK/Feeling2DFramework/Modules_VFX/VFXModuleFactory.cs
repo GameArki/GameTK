@@ -19,8 +19,8 @@ namespace NJM.Modules_VFX {
             return entity;
         }
 
-        public static VFXModuleSM VFX_Create(VFXModuleContext ctx, int id, int typeID, UniqueSignature belong, Vector2 pos) {
-            var vfxEntity = ctx.poolService.Get(typeID);
+        public static VFXModuleSM VFX_Create(VFXModuleContext ctx, int id, int typeGroup, int typeID, UniqueSignature belong, Vector2 pos) {
+            var vfxEntity = ctx.poolService.Get(typeGroup, typeID);
             vfxEntity.belong = belong;
             vfxEntity.Reuse();
             vfxEntity.id = id;

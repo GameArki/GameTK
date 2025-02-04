@@ -7,6 +7,7 @@ namespace NJM {
     public class VFXModuleSM : MonoBehaviour {
 
         public int id;
+        public int typeGroup;
         public int typeID;
         public UniqueSignature belong;
         public bool isFollowBelong;

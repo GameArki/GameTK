@@ -7,6 +7,7 @@ namespace NJM {
     [Serializable]
     public struct SoundModuleTM {
 
+        public int typeGroup;
         public int typeID;
         public SoundLayerType layer;
         public AudioClip clip;

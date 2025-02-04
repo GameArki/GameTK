@@ -6,6 +6,7 @@ namespace NJM.Modules_Sound {
     public class SoundModuleEntity {
 
         public int id;
+        public int typeGroup;
         public int typeID;
         public UniqueSignature belong;
         public SoundLayerType layer;

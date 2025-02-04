@@ -8,7 +8,7 @@ namespace NJM.Modules_VFX {
     public class VFXModuleRepo {
 
         Dictionary<int, VFXModuleSM> all;
-        Dictionary<int, HashSet<VFXModuleSM>> allByTypeID;
+        Dictionary<ulong, HashSet<VFXModuleSM>> allByTypeID;
 
         Pool<HashSet<VFXModuleSM>> pool;
 
@@ -17,7 +17,7 @@ namespace NJM.Modules_VFX {
 
         public VFXModuleRepo() {
             all = new Dictionary<int, VFXModuleSM>();
-            allByTypeID = new Dictionary<int, HashSet<VFXModuleSM>>();
+            allByTypeID = new Dictionary<ulong, HashSet<VFXModuleSM>>();
             pool = new Pool<HashSet<VFXModuleSM>>(10, () => new HashSet<VFXModuleSM>());
             temp = new VFXModuleSM[1000];
             tempForBelong = new VFXModuleSM[1000];
@@ -28,10 +28,11 @@ namespace NJM.Modules_VFX {
             if (!succ) {
                 Debug.LogError($"VFXRepo.AddSeq: Add failed, id={vfx.id}");
             }
-            
-            if (!allByTypeID.TryGetValue(vfx.typeID, out var set)) {
+
+            ulong key = GetKey(vfx.typeGroup, vfx.typeID);
+            if (!allByTypeID.TryGetValue(key, out var set)) {
                 set = pool.Get();
-                allByTypeID.Add(vfx.typeID, set);
+                allByTypeID.Add(key, set);
             }
             set.Add(vfx);
         }
@@ -41,19 +42,21 @@ namespace NJM.Modules_VFX {
             if (has) {
                 all.Remove(id);
 
-                allByTypeID.TryGetValue(vfx.typeID, out var set);
+                ulong key = GetKey(vfx.typeGroup, vfx.typeID);
+                allByTypeID.TryGetValue(key, out var set);
                 if (set != null) {
                     set.Remove(vfx);
                     if (set.Count == 0) {
-                        allByTypeID.Remove(vfx.typeID);
+                        allByTypeID.Remove(key);
                         pool.Return(set);
                     }
                 }
             }
         }
 
-        public bool IsExistLoop(int typeID, UniqueSignature belong) {
-            bool res = allByTypeID.TryGetValue(typeID, out var vfxs);
+        public bool IsExistLoop(int typeGroup, int typeID, UniqueSignature belong) {
+            ulong key = GetKey(typeGroup, typeID);
+            bool res = allByTypeID.TryGetValue(key, out var vfxs);
             if (res) {
                 foreach (var vfx in vfxs) {
                     if (vfx.belong == belong && vfx.IsLoop()) {
@@ -82,6 +85,10 @@ namespace NJM.Modules_VFX {
             all.Values.CopyTo(temp, 0);
             result = temp;
             return all.Count;
+        }
+
+        ulong GetKey(int typeGroup, int typeID) {
+            return ((ulong)typeGroup << 32) | (uint)typeID;
         }
 
     }

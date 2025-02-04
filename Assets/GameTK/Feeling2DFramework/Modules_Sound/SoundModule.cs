@@ -40,7 +40,7 @@ namespace NJM {
 
         public void Play(SoundModuleTM tm, UniqueSignature belong, Vector2 happenPos) {
             if (tm.isLoop) {
-                bool has = ctx.repo.TryGetByTypeID(tm.typeID, out var existEntity);
+                bool has = ctx.repo.TryGetByTypeID(tm.typeGroup, tm.typeID, out var existEntity);
                 if (has) {
                     return;
                 }
@@ -56,8 +56,8 @@ namespace NJM {
             ctx.repo.Add(entity);
         }
 
-        public void Play(int typeID, UniqueSignature belong, Vector2 happenPos) {
-            bool has = ctx.template.TryGet(typeID, out var sfxSO);
+        public void Play(int typeGroup, int typeID, UniqueSignature belong, Vector2 happenPos) {
+            bool has = ctx.template.TryGet(typeGroup, typeID, out var sfxSO);
             if (!has) {
                 Debug.LogError($"SoundModule.Play: typeID={typeID} not found");
                 return;
@@ -65,8 +65,8 @@ namespace NJM {
             Play(sfxSO.tm, belong, happenPos);
         }
 
-        public void Pause(int typeID, UniqueSignature belong) {
-            bool has = ctx.repo.TryGetByTypeID(typeID, out var entity);
+        public void Pause(int typeGroup, int typeID, UniqueSignature belong) {
+            bool has = ctx.repo.TryGetByTypeID(typeGroup, typeID, out var entity);
             if (!has) {
                 return;
             }

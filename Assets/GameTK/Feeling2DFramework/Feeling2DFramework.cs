@@ -191,16 +191,16 @@ namespace NJM {
             ctx.soundModule.Play(soundModuleSO.tm, belong, happenPos);
         }
 
-        public void Sound_Play(int typeID, UniqueSignature belong, Vector2 happenPos) {
-            ctx.soundModule.Play(typeID, belong, happenPos);
+        public void Sound_Play(int typeGroup, int typeID, UniqueSignature belong, Vector2 happenPos) {
+            ctx.soundModule.Play(typeGroup, typeID, belong, happenPos);
         }
 
         public void Sound_Pause(SoundModuleSO soundModuleSO, UniqueSignature belong) {
-            Sound_Pause(soundModuleSO.tm.typeID, belong);
+            Sound_Pause(soundModuleSO.tm.typeGroup, soundModuleSO.tm.typeID, belong);
         }
 
-        public void Sound_Pause(int typeID, UniqueSignature belong) {
-            ctx.soundModule.Pause(typeID, belong);
+        public void Sound_Pause(int typeGroup, int typeID, UniqueSignature belong) {
+            ctx.soundModule.Pause(typeGroup, typeID, belong);
         }
 
         public void Sound_StopAllBGM(float fadeOutDuration) {

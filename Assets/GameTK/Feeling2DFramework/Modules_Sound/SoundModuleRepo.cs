@@ -37,9 +37,9 @@ namespace NJM.Modules_Sound {
             return all.TryGetValue(id, out entity);
         }
 
-        public bool TryGetByTypeID(int typeID, out SoundModuleEntity entity) {
+        public bool TryGetByTypeID(int typeGorup, int typeID, out SoundModuleEntity entity) {
             foreach (var item in all.Values) {
-                if (item.typeID == typeID) {
+                if (item.typeGroup == typeGorup && item.typeID == typeID) {
                     entity = item;
                     return true;
                 }

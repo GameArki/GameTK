@@ -27,21 +27,21 @@ namespace NJM {
         public async Task InitAsync() {
             await ctx.template.LoadAll();
 
-            ctx.template.Foreach((VFXModuleSM tm) => {
-                ctx.poolService.InitVFXSequence(tm.typeID, 6, () => VFXModuleFactory.VFX_New(ctx, tm.typeID));
+            ctx.template.Foreach((VFXModuleSM sm) => {
+                ctx.poolService.InitVFXSequence(sm.typeGroup, sm.typeID, 6, () => VFXModuleFactory.VFX_New(ctx, sm.typeID));
             });
         }
 
         #region Lifecycle
         public VFXModuleSM Spawn(VFXModuleSM prefab, UniqueSignature belong, Vector2 pos) {
-            return Spawn(prefab.typeID, belong, pos);
+            return Spawn(prefab.typeGroup, prefab.typeID, belong, pos);
         }
 
-        public VFXModuleSM Spawn(int typeID, UniqueSignature belong, Vector2 pos) {
-            if (ctx.vfxRepo.IsExistLoop(typeID, belong)) {
+        public VFXModuleSM Spawn(int typeGroup, int typeID, UniqueSignature belong, Vector2 pos) {
+            if (ctx.vfxRepo.IsExistLoop(typeGroup, typeID, belong)) {
                 return null;
             }
-            var vfxEntity = VFXModuleFactory.VFX_Create(ctx, ++ctx.idRecord, typeID, belong, pos);
+            var vfxEntity = VFXModuleFactory.VFX_Create(ctx, ++ctx.idRecord, typeGroup, typeID, belong, pos);
             if (vfxEntity != null) {
                 ctx.vfxRepo.Add(vfxEntity);
                 return vfxEntity;
@@ -54,11 +54,11 @@ namespace NJM {
             VFXModuleFactory.VFX_Release(ctx, vfx);
         }
 
-        public void UnspawnBelongAndTypeID(UniqueSignature belong, int typeID) {
+        public void UnspawnBelongAndTypeID(UniqueSignature belong, int typeGroup, int typeID) {
             int count = ctx.vfxRepo.TakeBelong(belong, out var vfxs);
             for (int i = 0; i < count; i++) {
                 var vfx = vfxs[i];
-                if (vfx.typeID != typeID) {
+                if (vfx.typeGroup == typeGroup && vfx.typeID != typeID) {
                     continue;
                 }
                 if (vfx.isDestroyWhenBelongDestroy) {
