@@ -10,6 +10,8 @@ namespace NJM.Modules_Sound {
         public UniqueSignature belong;
         public SoundLayerType layer;
 
+        public AudioSource player;
+
         public bool isLoop; // destroy when belong destroy
 
         public bool isFollowBelong;
@@ -19,8 +21,6 @@ namespace NJM.Modules_Sound {
         public float volumePercent;
 
         public bool isEffectByDistance;
-
-        public AudioSource player;
 
         // - Fadeout
         public bool isFadingOut;
@@ -34,7 +34,6 @@ namespace NJM.Modules_Sound {
             player.clip = null;
             player.volume = 1;
             player.loop = false;
-            player = null;
             clip = null;
 
             isFadingOut = false;

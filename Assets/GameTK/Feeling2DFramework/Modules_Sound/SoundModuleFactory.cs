@@ -17,7 +17,9 @@ namespace NJM.Modules_Sound {
             entity.clip = tm.clip;
             entity.isEffectByDistance = tm.isEffectByDistance;
             entity.volumePercent = tm.volumePercent;
-            entity.player = CreateSource(ctx);
+            if (entity.player == null) {
+                entity.player = CreateSource(ctx);
+            }
             return entity;
         }
 

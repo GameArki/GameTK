@@ -107,9 +107,9 @@ namespace NJM {
             int count = ctx.repo.TakeAllBelong(belong, out var array);
             for (int i = 0; i < count; i++) {
                 var entity = array[i];
-                entity.Release();
                 ctx.repo.Remove(entity.id);
                 ctx.pool_entity.Return(entity);
+                entity.Release();
             }
         }
 
