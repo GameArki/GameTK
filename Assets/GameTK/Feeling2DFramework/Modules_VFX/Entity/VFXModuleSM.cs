@@ -25,6 +25,7 @@ namespace NJM {
         public void Ctor() { }
 
         public void Reuse() {
+            sr.sortingOrder = spriteLayer;
             gameObject.SetActive(true);
         }
 
