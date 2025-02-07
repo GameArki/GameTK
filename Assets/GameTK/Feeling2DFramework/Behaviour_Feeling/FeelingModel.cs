@@ -14,6 +14,12 @@ namespace NJM {
         public float ppShakeFrequency;
         public Vector2 ppShakeAmplitude;
 
+        // - Camera: Effect Shake
+        public bool hasCameraShake;
+        public float cameraShakeDuration;
+        public float cameraShakeFrequency;
+        public Vector2 cameraShakeAmplitude;
+
         // - Camera: Effect ZoomIn
         public bool hasCameraZoomIn;
         public GFEasingEnum cameraZoomInEasingType;
@@ -60,6 +66,11 @@ namespace NJM {
             ppShakeDuration = tm.ppShakeDuration;
             ppShakeFrequency = tm.ppShakeFrequency;
             ppShakeAmplitude = tm.ppShakeAmplitude;
+
+            hasCameraShake = tm.hasCameraShake;
+            cameraShakeDuration = tm.cameraShakeDuration;
+            cameraShakeFrequency = tm.cameraShakeFrequency;
+            cameraShakeAmplitude = tm.cameraShakeAmplitude;
 
             hasCameraZoomIn = tm.hasCameraZoomIn;
             cameraZoomInEasingType = tm.cameraZoomInEasingType;

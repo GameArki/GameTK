@@ -99,6 +99,10 @@ namespace NJM {
                 }
             }
 
+            if (tm.hasCameraShake) {
+                ctx.cameraModule.Effect_Shake(tm.cameraShakeAmplitude, tm.cameraShakeFrequency, tm.cameraShakeDuration);
+            }
+
             if (tm.hasPPShake) {
                 ctx.rendererModule.ShakeScreen_Begin(tm.ppShakeAmplitude, tm.ppShakeFrequency, tm.ppShakeDuration);
             }

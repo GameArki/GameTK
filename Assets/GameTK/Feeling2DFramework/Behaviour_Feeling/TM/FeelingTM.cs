@@ -15,6 +15,12 @@ namespace NJM.Template {
         [ShowIf(nameof(hasPPShake))] public float ppShakeFrequency;
         [ShowIf(nameof(hasPPShake))] public Vector2 ppShakeAmplitude;
 
+        [Title("Camera Shake")]
+        public bool hasCameraShake;
+        [ShowIf(nameof(hasCameraShake))] public float cameraShakeDuration;
+        [ShowIf(nameof(hasCameraShake))] public float cameraShakeFrequency;
+        [ShowIf(nameof(hasCameraShake))] public Vector2 cameraShakeAmplitude;
+
         [Title("Camera ZoomIn")]
         public bool hasCameraZoomIn;
         [ShowIf(nameof(hasCameraZoomIn))] public GFEasingEnum cameraZoomInEasingType;
