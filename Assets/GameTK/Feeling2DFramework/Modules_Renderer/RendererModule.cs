@@ -93,12 +93,12 @@ namespace NJM {
         #endregion
 
         #region PP: FilmBorder
-        public void FilmBorder_DefaultFadeIn() {
-            FilmBorder_Begin(true, GFEasingEnum.InSine, 0, 0.1f, 2);
+        public void FilmBorder_FadeIn(float screenEdgePercent, GFEasingEnum easingEnum, float duration) {
+            FilmBorder_Begin(true, easingEnum, 0, screenEdgePercent, duration);
         }
 
-        public void FilmBorder_DefaultFadeOut() {
-            FilmBorder_Begin(false, GFEasingEnum.OutSine, 0.1f, 0, 1);
+        public void FilmBorder_FadeOut(float screenEdgePercent, GFEasingEnum easingEnum, float duration) {
+            FilmBorder_Begin(false, easingEnum, screenEdgePercent, 0, duration);
         }
 
         public void FilmBorder_Begin(bool isEnable, GFEasingEnum easingEnum, float startValue, float endValue, float duration) {

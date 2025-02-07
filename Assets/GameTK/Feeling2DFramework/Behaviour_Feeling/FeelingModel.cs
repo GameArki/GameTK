@@ -8,16 +8,11 @@ namespace NJM {
     [Serializable]
     public struct FeelingModel {
 
-        // - Suffer Mesh Shake
-        public bool hasSufferMeshShake;
-        public float sufferMeshShakeDuration;
-        public Vector2 sufferMeshShakeStrength;
-
-        // - Camera: Effect Shake
-        public bool hasCameraShake;
-        public float cameraShakeDuration;
-        public float cameraShakeFrequency;
-        public Vector2 cameraShakeAmplitude;
+        // - PP: Effect Shake
+        public bool hasPPShake;
+        public float ppShakeDuration;
+        public float ppShakeFrequency;
+        public Vector2 ppShakeAmplitude;
 
         // - Camera: Effect ZoomIn
         public bool hasCameraZoomIn;
@@ -31,7 +26,14 @@ namespace NJM {
 
         // - PP
         public bool isPPFilmBorderFadeIn;
+        public float filmBorderFadeInScreenEdgePercent;
+        public GFEasingEnum filmBorderFadeInEasingType;
+        public float filmBorderFadeInDuration;
+
         public bool isPPFilmBorderFadeOut;
+        public float filmBorderFadeOutScreenEdgePercent;
+        public GFEasingEnum filmBorderFadeOutEasingType;
+        public float filmBorderFadeOutDuration;
 
         // - GhostTrail
         public bool hasGhostTrail;
@@ -54,14 +56,10 @@ namespace NJM {
 
         public void FromTM(in Template.FeelingTM tm) {
 
-            hasSufferMeshShake = tm.hasSufferMeshShake;
-            sufferMeshShakeDuration = tm.sufferMeshShakeDuration;
-            sufferMeshShakeStrength = tm.sufferMeshShakeStrength;
-
-            hasCameraShake = tm.hasCameraShake;
-            cameraShakeDuration = tm.cameraShakeDuration;
-            cameraShakeFrequency = tm.cameraShakeFrequency;
-            cameraShakeAmplitude = tm.cameraShakeAmplitude;
+            hasPPShake = tm.hasPPShake;
+            ppShakeDuration = tm.ppShakeDuration;
+            ppShakeFrequency = tm.ppShakeFrequency;
+            ppShakeAmplitude = tm.ppShakeAmplitude;
 
             hasCameraZoomIn = tm.hasCameraZoomIn;
             cameraZoomInEasingType = tm.cameraZoomInEasingType;
@@ -73,7 +71,14 @@ namespace NJM {
             cameraZoomInAutoRestoreDurationFrameCount = tm.cameraZoomInAutoRestoreFrameCount;
 
             isPPFilmBorderFadeIn = tm.isPPFilmBorderFadeIn;
+            filmBorderFadeInScreenEdgePercent = tm.filmBorderFadeInScreenEdgePercent;
+            filmBorderFadeInEasingType = tm.filmBorderFadeInEasingType;
+            filmBorderFadeInDuration = tm.filmBorderFadeInDuration;
+
             isPPFilmBorderFadeOut = tm.isPPFilmBorderFadeOut;
+            filmBorderFadeOutScreenEdgePercent = tm.filmBorderFadeOutScreenEdgePercent;
+            filmBorderFadeOutEasingType = tm.filmBorderFadeOutEasingType;
+            filmBorderFadeOutDuration = tm.filmBorderFadeOutDuration;
 
             hasGhostTrail = tm.hasGhostTrail;
             ghostTrailDuration = tm.ghostTrailDuration;

@@ -9,18 +9,13 @@ namespace NJM.Template {
     [Serializable]
     public struct FeelingTM {
 
-        // - Suffer Mesh Shake
-        public bool hasSufferMeshShake;
-        [ShowIf(nameof(hasSufferMeshShake))] public float sufferMeshShakeDuration;
-        [ShowIf(nameof(hasSufferMeshShake))] public Vector2 sufferMeshShakeStrength;
+        [Title("PP Shake")]
+        public bool hasPPShake;
+        [ShowIf(nameof(hasPPShake))] public float ppShakeDuration;
+        [ShowIf(nameof(hasPPShake))] public float ppShakeFrequency;
+        [ShowIf(nameof(hasPPShake))] public Vector2 ppShakeAmplitude;
 
-        // - Camera
-        public bool hasCameraShake;
-        [ShowIf(nameof(hasCameraShake))] public float cameraShakeDuration;
-        [ShowIf(nameof(hasCameraShake))] public float cameraShakeFrequency;
-        [ShowIf(nameof(hasCameraShake))] public Vector2 cameraShakeAmplitude;
-
-        // - Camera ZoomIn
+        [Title("Camera ZoomIn")]
         public bool hasCameraZoomIn;
         [ShowIf(nameof(hasCameraZoomIn))] public GFEasingEnum cameraZoomInEasingType;
         [ShowIf(nameof(hasCameraZoomIn))] public float cameraZoomInFrameCount;
@@ -31,22 +26,31 @@ namespace NJM.Template {
         [ShowIf(nameof(isCameraZoomInAutoRestore))] public float cameraZoomInAutoRestoreFrameCount;
 
         // - PP
+        [Title("电影黑边 FadeIn")]
         public bool isPPFilmBorderFadeIn;
-        public bool isPPFilmBorderFadeOut;
+        [ShowIf(nameof(isPPFilmBorderFadeIn))] public float filmBorderFadeInScreenEdgePercent;
+        [ShowIf(nameof(isPPFilmBorderFadeIn))] public GFEasingEnum filmBorderFadeInEasingType;
+        [ShowIf(nameof(isPPFilmBorderFadeIn))] public float filmBorderFadeInDuration;
 
-        // - GhostTrail
+        [Title("电影黑边 FadeOut")]
+        public bool isPPFilmBorderFadeOut;
+        [ShowIf(nameof(isPPFilmBorderFadeOut))] public float filmBorderFadeOutScreenEdgePercent;
+        [ShowIf(nameof(isPPFilmBorderFadeOut))] public GFEasingEnum filmBorderFadeOutEasingType;
+        [ShowIf(nameof(isPPFilmBorderFadeOut))] public float filmBorderFadeOutDuration;
+
+        [Title("残影")]
         public bool hasGhostTrail;
         [ShowIf(nameof(hasGhostTrail))] public float ghostTrailDuration;
 
-        // - VFX
+        [Title("VFX")]
         public bool hasVFX;
         [ShowIf(nameof(hasVFX))] public VFXModuleSM[] vfxs;
 
-        // - SFX
+        [Title("Sound")]
         public bool hasSound;
         [ShowIf(nameof(hasSound))] public SoundModuleTM[] sounds;
 
-        // - Rumble
+        [Title("Rumble")]
         public bool hasRumble;
         [ShowIf(nameof(hasRumble))] public float leftRumbleDuration;
         [ShowIf(nameof(hasRumble))] public float leftRumbleStrength;

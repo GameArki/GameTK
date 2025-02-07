@@ -99,8 +99,8 @@ namespace NJM {
                 }
             }
 
-            if (tm.hasCameraShake) {
-                ctx.rendererModule.ShakeScreen_Begin(tm.cameraShakeAmplitude, tm.cameraShakeFrequency, tm.cameraShakeDuration);
+            if (tm.hasPPShake) {
+                ctx.rendererModule.ShakeScreen_Begin(tm.ppShakeAmplitude, tm.ppShakeFrequency, tm.ppShakeDuration);
             }
 
             if (tm.hasCameraZoomIn) {
@@ -120,11 +120,11 @@ namespace NJM {
             }
 
             if (tm.isPPFilmBorderFadeIn) {
-                ctx.rendererModule.FilmBorder_DefaultFadeIn();
+                ctx.rendererModule.FilmBorder_FadeIn(tm.filmBorderFadeInScreenEdgePercent, tm.filmBorderFadeInEasingType, tm.filmBorderFadeInDuration);
             }
 
             if (tm.isPPFilmBorderFadeOut) {
-                ctx.rendererModule.FilmBorder_DefaultFadeOut();
+                ctx.rendererModule.FilmBorder_FadeOut(tm.filmBorderFadeOutScreenEdgePercent, tm.filmBorderFadeOutEasingType, tm.filmBorderFadeOutDuration);
             }
         }
 
