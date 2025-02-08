@@ -123,6 +123,10 @@ namespace NJM {
                 }
             }
 
+            if (tm.isStopAllBGM) {
+                ctx.soundModule.BGM_StopAll(tm.stopAllBGMDuration);
+            }
+
             if (tm.isPPFilmBorderFadeIn) {
                 ctx.rendererModule.FilmBorder_FadeIn(tm.filmBorderFadeInScreenEdgePercent, tm.filmBorderFadeInEasingType, tm.filmBorderFadeInDuration);
             }

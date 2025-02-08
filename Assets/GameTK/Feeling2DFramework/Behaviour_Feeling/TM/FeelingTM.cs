@@ -55,6 +55,8 @@ namespace NJM.Template {
         [Title("Sound")]
         public bool hasSound;
         [ShowIf(nameof(hasSound))] public SoundModuleTM[] sounds;
+        public bool isStopAllBGM;
+        [ShowIf(nameof(isStopAllBGM))] public float stopAllBGMDuration;
 
         [Title("Rumble")]
         public bool hasRumble;
