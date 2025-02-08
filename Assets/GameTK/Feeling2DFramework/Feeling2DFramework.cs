@@ -82,6 +82,7 @@ namespace NJM {
         public void TearDown() {
             ctx.soundModule.TearDown_ButBGM();
             ctx.vfxModule.TearDown();
+            ctx.rumbleModule.StopAll();
         }
         #endregion
 
