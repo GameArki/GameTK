@@ -13,6 +13,7 @@ namespace NJM.Framework_Feeling2D {
         public VFXModule vfxModule;
         public SoundModule soundModule;
         public RendererModule rendererModule;
+        public RumbleModule rumbleModule;
 
         public Feeling2DFrameworkContext() { }
 

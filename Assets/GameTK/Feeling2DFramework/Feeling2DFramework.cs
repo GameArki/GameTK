@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 using System.Threading.Tasks;
 using UnityEditor;
 using NJM.Template;
+using UnityEngine.InputSystem;
 
 namespace NJM {
 
@@ -20,6 +21,7 @@ namespace NJM {
         [SerializeField] Camera mainCamera;
         [SerializeField] Camera[] otherCameras;
         [SerializeField] Volume globalVolume;
+        [SerializeField] float rumbleIntensity;
 
         Feeling2DFrameworkContext ctx;
 
@@ -35,6 +37,7 @@ namespace NJM {
             ctx.vfxModule = new VFXModule();
             ctx.soundModule = new SoundModule();
             ctx.rendererModule = new RendererModule();
+            ctx.rumbleModule = new RumbleModule();
 
             ctx.vfxModule.Events.OnGetBelongPosHandle = (uniqueSig) => {
                 return events.OnGetBelongPos(uniqueSig);
@@ -45,7 +48,7 @@ namespace NJM {
             };
         }
 
-        public void Inject() {
+        public void Inject(Gamepad gamepad) {
 
             ctx.cameraModule.Inject(mainCamera, otherCameras);
 
@@ -55,6 +58,8 @@ namespace NJM {
 
             ctx.rendererModule.Inject(globalVolume);
 
+            ctx.rumbleModule.Inject(gamepad, rumbleIntensity);
+
         }
 
         public async Task InitAsync(int enum_logLevel) {
@@ -63,6 +68,7 @@ namespace NJM {
             await ctx.soundModule.InitAsync();
             await ctx.vfxModule.InitAsync();
             ctx.rendererModule.Init();
+            ctx.rumbleModule.Init();
         }
 
         public void Tick(SoundModuleUpdateArgs soundModuleUpdateArgs, Vector2 cameraTargetPos, float dt) {
@@ -70,6 +76,7 @@ namespace NJM {
             ctx.cameraModule.Tick(cameraTargetPos, dt);
             ctx.rendererModule.Tick(dt);
             ctx.vfxModule.Tick(dt);
+            ctx.rumbleModule.Tick(dt);
         }
 
         public void TearDown() {
@@ -133,6 +140,12 @@ namespace NJM {
 
             if (tm.isPPFilmBorderFadeOut) {
                 ctx.rendererModule.FilmBorder_FadeOut(tm.filmBorderFadeOutScreenEdgePercent, tm.filmBorderFadeOutEasingType, tm.filmBorderFadeOutDuration);
+            }
+
+            if (tm.hasRumble) {
+                foreach (var rumble in tm.rumbles) {
+                    ctx.rumbleModule.Rumble(rumble);
+                }
             }
         }
 
@@ -241,6 +254,16 @@ namespace NJM {
 
         public void PP_ShakeScreen_Stop() {
             ctx.rendererModule.ShakeScreen_Stop();
+        }
+        #endregion
+
+        #region API: Rumble
+        public void Rumble_StopAll() {
+            ctx.rumbleModule.StopAll();
+        }
+
+        public void Rumble_SetIntensity(float rumbleIntensity) {
+            ctx.rumbleModule.SetIntensity(rumbleIntensity);
         }
         #endregion
 

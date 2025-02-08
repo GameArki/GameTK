@@ -55,10 +55,7 @@ namespace NJM {
 
         // - Rumble
         public bool hasRumble;
-        public float leftRumbleDuration;
-        public float leftRumbleStrength;
-        public float rightRumbleDuration;
-        public float rightRumbleStrength;
+        public RumbleTM[] rumbles;
 
         public void FromTM(in Template.FeelingTM tm) {
 
@@ -101,10 +98,7 @@ namespace NJM {
             sounds = tm.sounds;
 
             hasRumble = tm.hasRumble;
-            leftRumbleDuration = tm.leftRumbleDuration;
-            leftRumbleStrength = tm.leftRumbleStrength;
-            rightRumbleDuration = tm.rightRumbleDuration;
-            rightRumbleStrength = tm.rightRumbleStrength;
+            rumbles = tm.rumbles;
 
         }
 

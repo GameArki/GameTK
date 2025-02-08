@@ -60,10 +60,7 @@ namespace NJM.Template {
 
         [Title("Rumble")]
         public bool hasRumble;
-        [ShowIf(nameof(hasRumble))] public float leftRumbleDuration;
-        [ShowIf(nameof(hasRumble))] public float leftRumbleStrength;
-        [ShowIf(nameof(hasRumble))] public float rightRumbleDuration;
-        [ShowIf(nameof(hasRumble))] public float rightRumbleStrength;
+        [ShowIf(nameof(hasRumble))] public RumbleTM[] rumbles;
 
     }
 
