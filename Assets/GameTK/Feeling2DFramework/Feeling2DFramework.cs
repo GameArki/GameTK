@@ -259,6 +259,10 @@ namespace NJM {
         #endregion
 
         #region API: Rumble
+        public void Rumble_Start(RumbleTM rumbleTM) {
+            ctx.rumbleModule.Rumble(rumbleTM);
+        }
+
         public void Rumble_StopAll() {
             ctx.rumbleModule.StopAll();
         }
