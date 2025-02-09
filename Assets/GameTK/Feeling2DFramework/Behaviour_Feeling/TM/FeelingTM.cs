@@ -3,6 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using TriInspector;
 using GameFunctions;
+using NJM.Modules_Sound;
 
 namespace NJM.Template {
 
@@ -57,6 +58,9 @@ namespace NJM.Template {
         [ShowIf(nameof(hasSound))] public SoundModuleTM[] sounds;
         public bool isStopAllBGM;
         [ShowIf(nameof(isStopAllBGM))] public float stopAllBGMDuration;
+        public bool isStopAllBGMByLayer;
+        [ShowIf(nameof(isStopAllBGMByLayer))] public SoundLayerType stopAllBGMLayer;
+        [ShowIf(nameof(isStopAllBGMByLayer))] public float stopAllBGMLayerDuration;
 
         [Title("Rumble")]
         public bool hasRumble;

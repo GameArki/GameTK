@@ -135,6 +135,10 @@ namespace NJM {
                 ctx.soundModule.BGM_StopAll(tm.stopAllBGMDuration);
             }
 
+            if (tm.isStopAllBGMByLayer) {
+                ctx.soundModule.BGM_StopAllByLayer(tm.stopAllBGMLayer, tm.stopAllBGMLayerDuration);
+            }
+
             if (tm.isPPFilmBorderFadeIn) {
                 ctx.rendererModule.FilmBorder_FadeIn(tm.filmBorderFadeInScreenEdgePercent, tm.filmBorderFadeInEasingType, tm.filmBorderFadeInDuration);
             }

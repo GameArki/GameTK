@@ -83,6 +83,16 @@ namespace NJM {
             }
         }
 
+        public void BGM_StopAllByLayer(SoundLayerType layer, float fadeOutDuration) {
+            int len = ctx.repo.TakeAll(out var array);
+            for (int i = 0; i < len; i++) {
+                var entity = array[i];
+                if (entity.layer.IsBGM() && entity.layer == layer) {
+                    entity.FadeOut_Begin(fadeOutDuration);
+                }
+            }
+        }
+
         public void BGM_PauseAll() {
             int len = ctx.repo.TakeAll(out var array);
             for (int i = 0; i < len; i++) {
