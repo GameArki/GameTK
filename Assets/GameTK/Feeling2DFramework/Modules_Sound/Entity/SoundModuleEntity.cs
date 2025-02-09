@@ -27,6 +27,7 @@ namespace NJM.Modules_Sound {
         public bool isFadingOut;
         public float fadeOutDuration;
         public float fadeOutTimer;
+        float fadeOutStartVolume;
 
         public SoundModuleEntity() { }
 
@@ -64,7 +65,7 @@ namespace NJM.Modules_Sound {
                 isFadingOut = false;
                 fadeOutTimer = 0;
             } else {
-                player.volume = volumePercent * (fadeOutTimer / fadeOutDuration);
+                player.volume = fadeOutStartVolume * (fadeOutTimer / fadeOutDuration);
             }
         }
 
@@ -72,6 +73,7 @@ namespace NJM.Modules_Sound {
             isFadingOut = true;
             fadeOutDuration = duration;
             fadeOutTimer = duration;
+            fadeOutStartVolume = player.volume;
         }
 
         public void Pause() {
