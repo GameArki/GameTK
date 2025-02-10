@@ -173,6 +173,10 @@ namespace NJM {
         #endregion
 
         #region API: Camera
+        public Camera Camera_GetMain() {
+            return mainCamera;
+        }
+
         public void Camera_Confiner_Enable(bool isEnable) {
             ctx.cameraModule.Confiner_Enable(isEnable);
         }
