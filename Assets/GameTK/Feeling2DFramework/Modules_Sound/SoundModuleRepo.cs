@@ -37,6 +37,16 @@ namespace NJM.Modules_Sound {
             return all.TryGetValue(id, out entity);
         }
 
+        public int GetLayerCount(SoundLayerType layerType) {
+            int count = 0;
+            foreach (var item in all.Values) {
+                if (item.layer == layerType) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         public bool TryGetByTypeID(int typeGorup, int typeID, out SoundModuleEntity entity) {
             foreach (var item in all.Values) {
                 if (item.typeGroup == typeGorup && item.typeID == typeID) {

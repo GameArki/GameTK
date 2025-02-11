@@ -1,11 +1,11 @@
 using System;
-using UnityEngine;
-using NJM.Framework_Feeling2D;
-using UnityEngine.Rendering;
 using System.Threading.Tasks;
-using UnityEditor;
-using NJM.Template;
+using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.InputSystem;
+using NJM.Template;
+using NJM.Framework_Feeling2D;
+using NJM.Modules_Sound;
 
 namespace NJM {
 
@@ -213,6 +213,10 @@ namespace NJM {
         #endregion
 
         #region API: Sound
+        public void Sound_Layer_SetLimited(SoundLayerType layerType, int limitedCount) {
+            ctx.soundModule.Layer_SetLimited(layerType, limitedCount);
+        }
+
         public void Sound_Play(SoundModuleSO soundModuleSO, UniqueSignature belong, Vector2 happenPos) {
             if (soundModuleSO == null) {
                 FFWLog.LogError("SoundModuleSO is null");

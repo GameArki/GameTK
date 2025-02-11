@@ -38,12 +38,25 @@ namespace NJM {
             }
         }
 
+        public void Layer_SetLimited(SoundLayerType layer, int count) {
+            if (ctx.processEntity.setting_layerLimited.TryGetValue(layer, out var existCount)) {
+                ctx.processEntity.setting_layerLimited[layer] = count;
+            } else {
+                ctx.processEntity.setting_layerLimited.Add(layer, count);
+            }
+        }
+
         public void Play(SoundModuleTM tm, UniqueSignature belong, Vector2 happenPos) {
             if (tm.isLoop) {
                 bool has = ctx.repo.TryGetByTypeID(tm.typeGroup, tm.typeID, out var existEntity);
                 if (has) {
                     return;
                 }
+            }
+
+            bool isLimited = ctx.processEntity.setting_layerLimited.TryGetValue(tm.layer, out var layerCount);
+            if (isLimited && ctx.repo.GetLayerCount(tm.layer) >= layerCount) {
+                return;
             }
 
             SoundModuleEntity entity = SoundModuleFactory.Create(ctx, tm, belong, happenPos);
