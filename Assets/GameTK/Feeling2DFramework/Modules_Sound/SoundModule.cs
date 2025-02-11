@@ -149,8 +149,10 @@ namespace NJM {
                 var entity = array[i];
                 entity.FadeOut_Tick(dt);
                 if (!entity.IsPlaying()) {
-                    ctx.repo.Remove(entity.id);
-                    ctx.pool_entity.Return(entity);
+                    if (!entity.isPause) {
+                        ctx.repo.Remove(entity.id);
+                        ctx.pool_entity.Return(entity);
+                    }
                 } else {
                     if (entity.isFollowBelong) {
                         Vector2 pos = events.OnGetBelongPos(entity.belong);

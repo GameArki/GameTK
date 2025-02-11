@@ -29,6 +29,8 @@ namespace NJM.Modules_Sound {
         public float fadeOutTimer;
         float fadeOutStartVolume;
 
+        public bool isPause;
+
         public SoundModuleEntity() { }
 
         public void Release() {
@@ -41,6 +43,8 @@ namespace NJM.Modules_Sound {
             isFadingOut = false;
             fadeOutDuration = 0;
             fadeOutTimer = 0;
+
+            isPause = false;
         }
 
         public void Play(float settingVolume) {
@@ -52,6 +56,7 @@ namespace NJM.Modules_Sound {
             } else {
                 player.UnPause();
             }
+            isPause = false;
         }
 
         public void FadeOut_Tick(float dt) {
@@ -78,6 +83,7 @@ namespace NJM.Modules_Sound {
 
         public void Pause() {
             player.Pause();
+            isPause = true;
         }
 
         public bool IsPlaying() {
