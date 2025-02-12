@@ -29,6 +29,11 @@ namespace NJM {
 
         }
 
+        public void StopAllEffects() {
+            ShakeScreen_Stop();
+            FilmBorder_Stop();
+        }
+
         public void Tick(float dt) {
             ShakeScreen_Tick(dt);
             FilmBorder_Tick(dt);
@@ -138,6 +143,13 @@ namespace NJM {
                 filmBorderVolume.isEnable.value = false;
             }
 
+        }
+
+        void FilmBorder_Stop() {
+            bool has = volume_global.profile.TryGet<PPFilmBorderVolume>(out var filmBorderVolume);
+            if (has) {
+                filmBorderVolume.isEnable.value = false;
+            }
         }
         #endregion
 

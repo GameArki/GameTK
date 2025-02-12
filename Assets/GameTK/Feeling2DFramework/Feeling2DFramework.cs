@@ -83,6 +83,8 @@ namespace NJM {
             ctx.soundModule.TearDown_ButBGM();
             ctx.vfxModule.TearDown();
             ctx.rumbleModule.StopAll();
+            ctx.rendererModule.StopAllEffects();
+            ctx.cameraModule.StopAllEffects();
         }
         #endregion
 

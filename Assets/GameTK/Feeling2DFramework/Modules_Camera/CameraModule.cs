@@ -22,6 +22,11 @@ namespace NJM {
             ctx.cameraHandleID = ctx.pfCore.Init(cam.transform.position, cam.orthographicSize, cam.aspect);
         }
 
+        public void StopAllEffects() {
+            ctx.pfCore.Effect_Shake_Stop(ctx.cameraHandleID);
+            ctx.pfCore.Effect_ZoomIn_Stop(ctx.cameraHandleID);
+        }
+
         public Vector3 WorldToScreenPoint(Vector2 worldPos) {
             Vector3 res = ctx.mainCamera.WorldToScreenPoint(worldPos);
             return res;
