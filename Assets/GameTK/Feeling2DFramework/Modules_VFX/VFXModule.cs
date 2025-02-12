@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using NJM.Modules_VFX;
-using UnityEditor;
 
 namespace NJM {
 
