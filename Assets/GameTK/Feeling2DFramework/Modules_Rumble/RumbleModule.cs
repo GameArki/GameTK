@@ -32,6 +32,12 @@ namespace NJM {
                 leftFreq *= 0.5f;
                 rightFreq *= 0.5f;
 #endif
+                // 暂停处理
+                if (dt == 0) {
+                    leftFreq = 0;
+                    rightFreq = 0;
+                }
+
                 gamepad.SetMotorSpeeds(leftFreq, rightFreq);
             }
         }
