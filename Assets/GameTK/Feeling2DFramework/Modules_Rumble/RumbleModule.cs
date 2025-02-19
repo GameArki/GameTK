@@ -20,7 +20,15 @@ namespace NJM {
         }
 
         public void Init() {
+            ctx.isEnable = true;
             Clear();
+        }
+
+        public void Enable(bool enable) {
+            if (!enable) {
+                StopAll();
+            }
+            ctx.isEnable = enable;
         }
 
         public void Tick(float dt) {
@@ -33,7 +41,7 @@ namespace NJM {
                 rightFreq *= 0.5f;
 #endif
                 // 暂停处理
-                if (dt == 0) {
+                if (dt == 0 || !ctx.isEnable) {
                     leftFreq = 0;
                     rightFreq = 0;
                 }

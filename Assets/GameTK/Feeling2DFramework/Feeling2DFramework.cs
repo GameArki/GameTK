@@ -284,6 +284,10 @@ namespace NJM {
         public void Rumble_SetIntensity(float rumbleIntensity) {
             ctx.rumbleModule.SetIntensity(rumbleIntensity);
         }
+
+        public void Rumble_Enable(bool isEnable) {
+            ctx.rumbleModule.Enable(isEnable);
+        }
         #endregion
 
     }

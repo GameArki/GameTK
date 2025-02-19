@@ -8,6 +8,8 @@ namespace NJM.Modules_Rumble {
 
     internal class RumbleModuleContext {
 
+        public bool isEnable;
+
         internal RumbleModuleEntity currentLeftRumble;
         internal RumbleModuleEntity currentRightRumble;
 
