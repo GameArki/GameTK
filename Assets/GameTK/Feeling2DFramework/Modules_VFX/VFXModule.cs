@@ -27,7 +27,7 @@ namespace NJM {
             await ctx.template.LoadAll();
 
             ctx.template.Foreach((VFXModuleSM sm) => {
-                ctx.poolService.InitVFXSequence(sm.typeGroup, sm.typeID, 6, () => VFXModuleFactory.VFX_New(ctx, sm.typeID));
+                ctx.poolService.InitVFXSequence(sm.typeGroup, sm.typeID, 6, () => VFXModuleFactory.VFX_New(ctx, sm.typeGroup, sm.typeID));
             });
         }
 

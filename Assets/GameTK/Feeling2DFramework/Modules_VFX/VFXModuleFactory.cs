@@ -6,8 +6,8 @@ namespace NJM.Modules_VFX {
     public static class VFXModuleFactory {
 
         #region VFXSequence
-        public static VFXModuleSM VFX_New(VFXModuleContext ctx, int typeID) {
-            bool has = ctx.template.TryGet(typeID, out var prefab);
+        public static VFXModuleSM VFX_New(VFXModuleContext ctx, int typeGroup, int typeID) {
+            bool has = ctx.template.TryGet(typeGroup, typeID, out var prefab);
             if (!has) {
                 Debug.LogError("No VFXSM Prefab");
                 return null;

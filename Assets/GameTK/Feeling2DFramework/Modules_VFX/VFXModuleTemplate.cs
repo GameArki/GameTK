@@ -9,10 +9,10 @@ namespace NJM.Modules_VFX {
 
     public class VFXModuleTemplate {
 
-        Dictionary<int, VFXModuleSM> all;
+        Dictionary<ulong, VFXModuleSM> all;
 
         public VFXModuleTemplate() {
-            all = new Dictionary<int, VFXModuleSM>();
+            all = new Dictionary<ulong, VFXModuleSM>();
         }
 
         public async Task LoadAll() {
@@ -22,7 +22,8 @@ namespace NJM.Modules_VFX {
                 var list = await asyncOperationHandle.Task;
                 foreach (var item in list) {
                     var sm = item.GetComponent<VFXModuleSM>();
-                    all.Add(sm.typeID, sm);
+                    ulong key = GetKey(sm.typeGroup, sm.typeID);
+                    all.Add(key, sm);
                 }
                 Addressables.Release(asyncOperationHandle);
             } catch (InvalidKeyException e) {
@@ -32,8 +33,13 @@ namespace NJM.Modules_VFX {
             }
         }
 
-        public bool TryGet(int typeID, out VFXModuleSM sfxSO) {
-            return all.TryGetValue(typeID, out sfxSO);
+        public bool TryGet(int typeGroup, int typeID, out VFXModuleSM sfxSO) {
+            ulong key = GetKey(typeGroup, typeID);
+            return all.TryGetValue(key, out sfxSO);
+        }
+
+        ulong GetKey(int typeGroup, int typeID) {
+            return ((ulong)(uint)typeGroup << 32) | (uint)typeID;
         }
 
         public void Foreach(Action<VFXModuleSM> action) {
