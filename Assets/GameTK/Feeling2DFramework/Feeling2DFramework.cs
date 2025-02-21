@@ -166,6 +166,12 @@ namespace NJM {
                     ctx.soundModule.DestroyBelong(belong);
                 }
             }
+
+            if (tm.hasVFX) {
+                foreach (var vfx in tm.vfxs) {
+                    ctx.vfxModule.UnspawnBelong(belong);
+                }
+            }
         }
 
         public void Feeling_DestroyBelong(UniqueSignature belong) {
