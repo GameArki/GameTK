@@ -276,6 +276,10 @@ namespace NJM {
         public void PP_ShakeScreen_Stop() {
             ctx.rendererModule.ShakeScreen_Stop();
         }
+
+        public void PP_CRT_Toggle(bool isEnable) {
+            ctx.rendererModule.CRT_Toggle(isEnable);
+        }
         #endregion
 
         #region API: Rumble
