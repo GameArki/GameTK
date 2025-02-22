@@ -42,10 +42,14 @@ namespace NJM.Modules_Canvas {
             this.isAllowVisible = isAllowVisible;
             this.isAutoHide = isAutoHide;
             this.autoHideSec = autoHideSec;
-            this.autoHideTimer = autoHideSec;
             this.awakeKey = awakeKey;
 
-            Cursor.visible = isAllowVisible;
+            if (isAutoHide) {
+                Cursor.visible = false;
+                this.autoHideTimer = 0;
+            } else {
+                Cursor.visible = isAllowVisible;
+            }
             if (!isAllowVisible) {
                 Cursor.lockState = CursorLockMode.Locked;
             }
