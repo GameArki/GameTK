@@ -35,39 +35,39 @@ namespace NJM.UIApplication {
         }
 
         #region Default
-        public static void Sound_PlaySelect() {
+        internal static void Sound_PlaySelect() {
             bool has = defaultSoundDict.TryGetValue(WidgetDefaultSoundType.Select, out AudioClip clip);
             if (has) {
                 Sound_Play(clip, true);
             }
         }
 
-        public static void Sound_PlayConfirm() {
+        internal static void Sound_PlayConfirm() {
             bool has = defaultSoundDict.TryGetValue(WidgetDefaultSoundType.Confirm, out AudioClip clip);
             if (has) {
                 Sound_Play(clip, true);
             }
         }
 
-        public static void Sound_PlayValueChange() {
+        internal static void Sound_PlayValueChange() {
             if (defaultSoundDict.TryGetValue(WidgetDefaultSoundType.ValueChange, out AudioClip clip)) {
                 Sound_Play(clip, false);
             }
         }
 
-        public static void Sound_PlayPopup() {
+        internal static void Sound_PlayPopup() {
             if (defaultSoundDict.TryGetValue(WidgetDefaultSoundType.Popup, out AudioClip clip)) {
                 Sound_Play(clip, true);
             }
         }
 
-        public static void Sound_PlayCancel() {
+        internal static void Sound_PlayCancel() {
             if (defaultSoundDict.TryGetValue(WidgetDefaultSoundType.Cancel, out AudioClip clip)) {
                 Sound_Play(clip, true);
             }
         }
 
-        public static void Sound_PlayDialogue() {
+        internal static void Sound_PlayDialogue() {
             if (defaultSoundDict.TryGetValue(WidgetDefaultSoundType.Dialogue, out AudioClip clip)) {
                 Sound_Play(clip, true);
             }
