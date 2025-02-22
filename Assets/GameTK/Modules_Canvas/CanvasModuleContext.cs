@@ -9,9 +9,12 @@ namespace NJM.Modules_Canvas {
 
         public GameObject lastSelectedGameObject;
 
+        public CursorEntity cursorEntity;
+
         public Dictionary<CanvasModuleRootLayer, CanvasEntity> canvases;
 
         public CanvasModuleContext() {
+            cursorEntity = new CursorEntity();
             canvases = new Dictionary<CanvasModuleRootLayer, CanvasEntity>();
         }
 

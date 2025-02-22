@@ -73,6 +73,8 @@ namespace NJM.Modules_Canvas {
             } else {
                 ctx.lastSelectedGameObject = evs.currentSelectedGameObject;
             }
+
+            ctx.cursorEntity.Tick(dt);
         }
         #endregion
 
@@ -82,6 +84,11 @@ namespace NJM.Modules_Canvas {
                 return entity.root;
             }
             return null;
+        }
+
+        public void Cursor_SetVisible(bool isVisible, bool isAutoHide, float autoHideSec, KeyCode awakeKey) {
+            var cursor = ctx.cursorEntity;
+            cursor.SetVisible(isVisible, isAutoHide, autoHideSec, awakeKey);
         }
 
         public void Canvas_SetResolution(CanvasModuleRootLayer layer, Vector2Int resolution) {
@@ -130,9 +137,9 @@ namespace NJM.Modules_Canvas {
             }
         }
 
-        public void Canvas_SetPixelPerfect(CanvasModuleRootLayer layer, bool pixelPerfect) {
+        public void Canvas_SetPixelPerfect(CanvasModuleRootLayer layer, bool isPixelPerfect) {
             if (ctx.canvases.TryGetValue(layer, out var entity)) {
-                entity.SetPixelPerfect(pixelPerfect);
+                entity.SetPixelPerfect(isPixelPerfect);
             } else {
                 Debug.LogError("Canvas not found for layer: " + layer);
             }
