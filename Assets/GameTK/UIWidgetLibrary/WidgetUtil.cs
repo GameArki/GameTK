@@ -35,6 +35,13 @@ namespace NJM.UIApplication {
         }
 
         #region Default
+        public static void Sound_Play_Default(WidgetDefaultSoundType type, bool isOneShot) {
+            bool has = defaultSoundDict.TryGetValue(type, out AudioClip clip);
+            if (has) {
+                Sound_Play(clip, isOneShot);
+            }
+        }
+
         internal static void Sound_PlaySelect() {
             bool has = defaultSoundDict.TryGetValue(WidgetDefaultSoundType.Select, out AudioClip clip);
             if (has) {
