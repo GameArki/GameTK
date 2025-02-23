@@ -43,7 +43,7 @@ namespace NJM {
         }
 
         public void Tick(Vector2 targetPos, float dt) {
-            
+
             Follow_Update(targetPos);
 
             var res = ctx.pfCore.Tick(dt);
@@ -60,6 +60,10 @@ namespace NJM {
             }
 
             mainCam.transform.position = new Vector3(res.pos.x, res.pos.y, mainCam.transform.position.z);
+        }
+
+        public void FastForward(float dt) {
+            ctx.pfCore.Tick(dt);
         }
 
         void Follow_Update(Vector2 targetPos) {

@@ -185,6 +185,10 @@ namespace NJM {
             return mainCamera;
         }
 
+        public void Camera_FastForward(float dt) {
+            ctx.cameraModule.FastForward(dt);
+        }
+
         public void Camera_Confiner_Enable(bool isEnable) {
             ctx.cameraModule.Confiner_Enable(isEnable);
         }
