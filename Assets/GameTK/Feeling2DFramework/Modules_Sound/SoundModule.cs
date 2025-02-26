@@ -136,6 +136,14 @@ namespace NJM {
             }
         }
 
+        public void BGM_Volume_Set(float volume) {
+            Volume_Set(ctx.processEntity.sfxVolume, volume);
+        }
+
+        public void SFX_Volume_Set(float volume) {
+            Volume_Set(volume, ctx.processEntity.bgmVolume);
+        }
+
         float GetVolume(SoundModuleEntity entity) {
             float volume;
             if (entity.layer.IsBGM()) {
@@ -177,7 +185,7 @@ namespace NJM {
         }
 
         #region Volume
-        void Volume_Set(float sfxVolume, float bgmVolume) {
+        public void Volume_Set(float sfxVolume, float bgmVolume) {
             var processEntity = ctx.processEntity;
             processEntity.bgmVolume = bgmVolume;
             processEntity.sfxVolume = sfxVolume;

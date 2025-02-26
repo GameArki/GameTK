@@ -264,6 +264,14 @@ namespace NJM {
         public void Sound_DestroyBelong(UniqueSignature belong) {
             ctx.soundModule.DestroyBelong(belong);
         }
+
+        public void Sound_BGM_Volume_Set(float volume) {
+            ctx.soundModule.BGM_Volume_Set(volume);
+        }
+
+        public void Sound_SFX_Volume_Set(float volume) {
+            ctx.soundModule.SFX_Volume_Set(volume);
+        }
         #endregion
 
         #region API: VFX
