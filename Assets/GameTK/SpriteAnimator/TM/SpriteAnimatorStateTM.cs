@@ -11,7 +11,7 @@ namespace GameClasses.SpriteAnimatorLib.Template {
 
         public bool isLoop;
 
-        public float speed;
+        public float fps;
 
         public Sprite[] sprites;
         public SpriteAnimatorTransitionTM[] transitions;

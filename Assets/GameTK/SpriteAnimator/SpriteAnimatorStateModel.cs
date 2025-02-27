@@ -26,7 +26,7 @@ namespace GameClasses.SpriteAnimatorLib {
         public void FromTM(SpriteAnimatorStateTM tm) {
             stateID = tm.stateID;
             stateName = tm.stateName;
-            fps = tm.speed;
+            fps = tm.fps;
             isLoop = tm.isLoop;
             sprites = tm.sprites;
             transitions.Clear();
