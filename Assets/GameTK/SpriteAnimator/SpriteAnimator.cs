@@ -17,6 +17,8 @@ namespace GameClasses.SpriteAnimatorLib {
 
         int currentStateID;
 
+        bool isEnable;
+
         public SpriteAnimator() {
             states = new Dictionary<int, SpriteAnimatorStateModel>();
             stateNameToID = new Dictionary<string, int>();
@@ -30,6 +32,8 @@ namespace GameClasses.SpriteAnimatorLib {
         }
 
         public void FromTM(SpriteAnimatorSO so) {
+
+            isEnable = true;
 
             foreach (SpriteAnimatorStateTM stateTM in so.states) {
                 SpriteAnimatorStateModel model = new SpriteAnimatorStateModel();
@@ -50,46 +54,62 @@ namespace GameClasses.SpriteAnimatorLib {
         }
 
         public void Play(string stateName) {
+            if (!isEnable) {
+                return;
+            }
             bool has = stateNameToID.TryGetValue(stateName, out int stateID);
             if (has) {
                 Play(stateID);
             } else {
-                throw new Exception($"State {stateName} not found");
+                Debug.LogWarning($"State {stateName} not found");
             }
         }
 
         public void Play(int stateID) {
+            if (!isEnable) {
+                return;
+            }
             bool has = states.TryGetValue(currentStateID, out SpriteAnimatorStateModel state);
             if (has) {
                 currentStateID = stateID;
                 state.Reset();
             } else {
-                throw new Exception($"State {stateID} not found");
+                Debug.LogWarning($"State {stateID} not found");
             }
         }
 
         public void Parameter_Set(int parameterID, float value) {
+            if (!isEnable) {
+                return;
+            }
             bool has = parameters.TryGetValue(parameterID, out SpriteAnimatorParameterModel parameter);
             if (has) {
                 parameter.value = value;
             } else {
-                throw new Exception($"Parameter {parameterID} not found");
+                Debug.LogWarning($"Parameter {parameterID} not found");
             }
         }
 
         public void Parameter_Set(string parameterName, float value) {
+            if (!isEnable) {
+                return;
+            }
             bool has = parameterNameToID.TryGetValue(parameterName, out int parameterID);
             if (has) {
                 Parameter_Set(parameterID, value);
             } else {
-                throw new Exception($"Parameter {parameterName} not found");
+                Debug.LogWarning($"Parameter {parameterName} not found");
             }
         }
 
         public void Tick(float dt) {
+            if (!isEnable) {
+                return;
+            }
+
             bool has = states.TryGetValue(currentStateID, out SpriteAnimatorStateModel state);
             if (!has) {
-                throw new Exception($"State {currentStateID} not found");
+                Debug.LogWarning($"State {currentStateID} not found");
             }
 
             bool isLoopEnd = state.Tick(dt, out Sprite sprite);
