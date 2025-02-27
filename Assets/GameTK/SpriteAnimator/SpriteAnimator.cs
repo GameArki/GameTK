@@ -112,13 +112,11 @@ namespace GameClasses.SpriteAnimatorLib {
                 Debug.LogWarning($"State {currentStateID} not found");
             }
 
-            bool isLoopEnd = state.Tick(dt, out Sprite sprite);
+            state.Tick(dt, out Sprite sprite);
             sr.sprite = sprite;
 
-            if (isLoopEnd) {
-                if (state.TryTransition(parameters, out int toStateID)) {
-                    Play(toStateID);
-                }
+            if (state.TryTransition(parameters, out int toStateID)) {
+                Play(toStateID);
             }
         }
 

@@ -12,6 +12,7 @@ namespace GameClasses.SpriteAnimatorLib {
         public float fps;
         public Sprite[] sprites;
         public bool isLoop;
+        bool isEnd;
 
         public List<SpriteAnimatorTransitionModel> transitions;
 
@@ -40,14 +41,14 @@ namespace GameClasses.SpriteAnimatorLib {
         public void Reset() {
             time = 0;
             index = 0;
+            isEnd = false;
         }
 
-        public bool Tick(float dt, out Sprite sprite) {
-            bool isEnd = false;
-            
+        public void Tick(float dt, out Sprite sprite) {
+
             time += dt;
-            
-            if (time>= fps) {
+
+            if (time >= fps) {
                 time -= fps;
                 index++;
             }
@@ -63,39 +64,39 @@ namespace GameClasses.SpriteAnimatorLib {
             }
 
             sprite = sprites[index];
-            return isEnd;
         }
 
         public bool TryTransition(IReadOnlyDictionary<int, SpriteAnimatorParameterModel> parameters, out int toStateID) {
             foreach (SpriteAnimatorTransitionModel transition in transitions) {
                 if (transition.isAutoExit) {
-                    toStateID = transition.toStateID;
-                    return true;
-                } else {
-                    foreach (SpriteAnimatorParameterConditionModel condition in transition.conditions) {
-                        var logicType = condition.equalLogicType;
-                        var parameterID = condition.parameterID;
-                        var conditionValue = condition.conditionValue;
-                        if (parameters.TryGetValue(parameterID, out SpriteAnimatorParameterModel parameter)) {
-                            if (logicType.HasFlag(SpriteAnimatorEqualLogicType.Equal)) {
-                                if (parameter.value == conditionValue) {
-                                    toStateID = transition.toStateID;
-                                    return true;
-                                }
+                    if (isEnd) {
+                        toStateID = transition.toStateID;
+                        return true;
+                    }
+                }
+                foreach (SpriteAnimatorParameterConditionModel condition in transition.conditions) {
+                    var logicType = condition.equalLogicType;
+                    var parameterID = condition.parameterID;
+                    var conditionValue = condition.conditionValue;
+                    if (parameters.TryGetValue(parameterID, out SpriteAnimatorParameterModel parameter)) {
+                        if (logicType.HasFlag(SpriteAnimatorEqualLogicType.Equal)) {
+                            if (parameter.value == conditionValue) {
+                                toStateID = transition.toStateID;
+                                return true;
                             }
+                        }
 
-                            if (logicType.HasFlag(SpriteAnimatorEqualLogicType.GreaterThanCondition)) {
-                                if (parameter.value > conditionValue) {
-                                    toStateID = transition.toStateID;
-                                    return true;
-                                }
+                        if (logicType.HasFlag(SpriteAnimatorEqualLogicType.GreaterThanCondition)) {
+                            if (parameter.value > conditionValue) {
+                                toStateID = transition.toStateID;
+                                return true;
                             }
+                        }
 
-                            if (logicType.HasFlag(SpriteAnimatorEqualLogicType.LessThanCondition)) {
-                                if (parameter.value < conditionValue) {
-                                    toStateID = transition.toStateID;
-                                    return true;
-                                }
+                        if (logicType.HasFlag(SpriteAnimatorEqualLogicType.LessThanCondition)) {
+                            if (parameter.value < conditionValue) {
+                                toStateID = transition.toStateID;
+                                return true;
                             }
                         }
                     }
