@@ -26,6 +26,7 @@ namespace GameClasses.SpriteAnimatorLib {
         public SpriteAnimator() {
             states = new Dictionary<int, SpriteAnimatorStateModel>();
             stateNameToID = new Dictionary<string, int>();
+            statesList = new List<SpriteAnimatorStateModel>();
 
             parameters = new Dictionary<int, SpriteAnimatorParameterModel>();
             parameterNameToID = new Dictionary<string, int>();
