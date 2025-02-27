@@ -44,8 +44,14 @@ namespace GameClasses.SpriteAnimatorLib {
 
         public bool Tick(float dt, out Sprite sprite) {
             bool isEnd = false;
+            
             time += dt;
-            index = (int)(time * fps);
+            
+            if (time>= fps) {
+                time -= fps;
+                index++;
+            }
+
             if (index >= sprites.Length) {
                 if (isLoop) {
                     time = 0;
