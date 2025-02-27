@@ -11,13 +11,18 @@ namespace GameClasses.SpriteAnimatorLib {
 
         Dictionary<int, SpriteAnimatorStateModel> states;
         Dictionary<string, int> stateNameToID;
+
         Dictionary<int, SpriteAnimatorParameterModel> parameters;
+        Dictionary<string, int> parameterNameToID;
+
         int currentStateID;
 
         public SpriteAnimator() {
             states = new Dictionary<int, SpriteAnimatorStateModel>();
             stateNameToID = new Dictionary<string, int>();
+
             parameters = new Dictionary<int, SpriteAnimatorParameterModel>();
+            parameterNameToID = new Dictionary<string, int>();
         }
 
         public void Inject(SpriteRenderer sr) {
@@ -37,6 +42,7 @@ namespace GameClasses.SpriteAnimatorLib {
                 SpriteAnimatorParameterModel model = new SpriteAnimatorParameterModel();
                 model.FromTM(parameterTM);
                 parameters.Add(model.parameterID, model);
+                parameterNameToID.Add(model.parameterName, model.parameterID);
             }
 
             currentStateID = so.states[0].stateID;
@@ -59,6 +65,24 @@ namespace GameClasses.SpriteAnimatorLib {
                 state.Reset();
             } else {
                 throw new Exception($"State {stateID} not found");
+            }
+        }
+
+        public void Parameter_Set(int parameterID, float value) {
+            bool has = parameters.TryGetValue(parameterID, out SpriteAnimatorParameterModel parameter);
+            if (has) {
+                parameter.value = value;
+            } else {
+                throw new Exception($"Parameter {parameterID} not found");
+            }
+        }
+
+        public void Parameter_Set(string parameterName, float value) {
+            bool has = parameterNameToID.TryGetValue(parameterName, out int parameterID);
+            if (has) {
+                Parameter_Set(parameterID, value);
+            } else {
+                throw new Exception($"Parameter {parameterName} not found");
             }
         }
 
