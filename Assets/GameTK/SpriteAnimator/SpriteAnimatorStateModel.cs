@@ -5,6 +5,7 @@ using GameClasses.SpriteAnimatorLib.Template;
 
 namespace GameClasses.SpriteAnimatorLib {
 
+    [Serializable]
     public class SpriteAnimatorStateModel {
 
         public int stateID;

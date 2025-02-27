@@ -3,6 +3,7 @@ using GameClasses.SpriteAnimatorLib.Template;
 
 namespace GameClasses.SpriteAnimatorLib {
 
+    [Serializable]
     public struct SpriteAnimatorParameterConditionModel {
 
         public int parameterID;

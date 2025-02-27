@@ -1,19 +1,23 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using TriInspector;
 using GameClasses.SpriteAnimatorLib.Template;
 
 namespace GameClasses.SpriteAnimatorLib {
 
+    [Serializable]
     public class SpriteAnimator {
 
         SpriteRenderer sr;
 
         Dictionary<int, SpriteAnimatorStateModel> states;
         Dictionary<string, int> stateNameToID;
+        [SerializeField] List<SpriteAnimatorStateModel> statesList;
 
         Dictionary<int, SpriteAnimatorParameterModel> parameters;
         Dictionary<string, int> parameterNameToID;
+        [SerializeField] List<SpriteAnimatorParameterModel> parametersList;
 
         int currentStateID;
 
@@ -25,6 +29,7 @@ namespace GameClasses.SpriteAnimatorLib {
 
             parameters = new Dictionary<int, SpriteAnimatorParameterModel>();
             parameterNameToID = new Dictionary<string, int>();
+            parametersList = new List<SpriteAnimatorParameterModel>();
         }
 
         public void Inject(SpriteRenderer sr) {
@@ -40,6 +45,7 @@ namespace GameClasses.SpriteAnimatorLib {
                 model.FromTM(stateTM);
                 states.Add(model.stateID, model);
                 stateNameToID.Add(model.stateName, model.stateID);
+                statesList.Add(model);
             }
 
             foreach (SpriteAnimatorParameterTM parameterTM in so.parameters) {
@@ -47,6 +53,7 @@ namespace GameClasses.SpriteAnimatorLib {
                 model.FromTM(parameterTM);
                 parameters.Add(model.parameterID, model);
                 parameterNameToID.Add(model.parameterName, model.parameterID);
+                parametersList.Add(model);
             }
 
             currentStateID = so.states[0].stateID;
