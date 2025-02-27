@@ -11,6 +11,8 @@ namespace GameClasses.SpriteAnimatorLib.Editor {
 
         public SpriteAnimatorSO so;
 
+        public SpriteAnimatorParameterTM[] parameterTMs;
+
         [Button]
         public void Bake() {
             SpriteAnimatorStateEM[] stateEMs = GetComponentsInChildren<SpriteAnimatorStateEM>();
@@ -19,6 +21,7 @@ namespace GameClasses.SpriteAnimatorLib.Editor {
                 stateTMs[i] = stateEMs[i].tm;
             }
             so.states = stateTMs;
+            so.parameters = parameterTMs;
             EditorUtility.SetDirty(so);
         }
 
