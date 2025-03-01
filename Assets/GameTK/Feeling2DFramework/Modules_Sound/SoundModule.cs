@@ -33,6 +33,7 @@ namespace NJM {
                 if (entity.layer.IsBGM()) {
                     continue;
                 }
+                ctx.repo.Remove(entity.id);
                 ctx.pool_entity.Return(entity);
                 entity.Release();
             }
