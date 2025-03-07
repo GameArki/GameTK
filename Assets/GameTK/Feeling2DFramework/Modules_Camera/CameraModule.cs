@@ -90,6 +90,10 @@ namespace NJM {
             ctx.pfCore.Effect_Shake_Begin(ctx.cameraHandleID, amplitude, frequency, duration);
         }
 
+        public void Follow_DeadZone_Set(Vector2 size) {
+            ctx.pfCore.Follow_DeadZone_Set(ctx.cameraHandleID, size);
+        }
+
         public void Effect_ZoomIn(GFEasingEnum easingType, float multiplier, float duration, bool isAutoRestore, GFEasingEnum restoreEasingType, float restoreDuration, float restoreDelay) {
             if (isAutoRestore) {
                 ctx.pfCore.Effect_ZoomIn_BeginAndAutoRestore(ctx.cameraHandleID, easingType, multiplier, duration, restoreEasingType, restoreDuration, restoreDelay);

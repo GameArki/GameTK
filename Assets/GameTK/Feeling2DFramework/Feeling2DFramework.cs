@@ -205,6 +205,10 @@ namespace NJM {
             ctx.cameraModule.Follow_Init(centerPos, vector3, xDamping, yDamping);
         }
 
+        public void Camera_Follow_DeadZone_Set(Vector2 size) {
+            ctx.cameraModule.Follow_DeadZone_Set(size);
+        }
+
         public void Camera_Orthographic_SetBaseSize(float orthographicSize, float ratioDisplay) {
             ctx.cameraModule.Orthographic_SetBaseSize(orthographicSize, ratioDisplay);
         }
