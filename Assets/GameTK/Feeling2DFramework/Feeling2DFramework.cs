@@ -163,13 +163,13 @@ namespace NJM {
         public void Feeling_Stop(UniqueSignature belong, in FeelingTM tm) {
             if (tm.hasSound) {
                 foreach (var sfx in tm.sounds) {
-                    ctx.soundModule.DestroyBelong(belong);
+                    ctx.soundModule.Sound_Stop(belong, sfx.typeGroup, sfx.typeID);
                 }
             }
 
             if (tm.hasVFX) {
                 foreach (var vfx in tm.vfxs) {
-                    ctx.vfxModule.UnspawnBelong(belong);
+                    ctx.vfxModule.UnspawnBelongAndTypeID(belong, vfx.typeGroup, vfx.typeID);
                 }
             }
         }

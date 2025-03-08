@@ -127,6 +127,17 @@ namespace NJM {
             }
         }
 
+        public void Sound_Stop(UniqueSignature belong, int typeGroup, int typeID) {
+            bool has = ctx.repo.TryGetByTypeID(typeGroup, typeID, out var entity);
+            if (!has) {
+                return;
+            }
+            if (entity.belong != belong) {
+                return;
+            }
+            entity.FadeOut_Begin(0);
+        }
+
         public void DestroyBelong(UniqueSignature belong) {
             int count = ctx.repo.TakeAllBelong(belong, out var array);
             for (int i = 0; i < count; i++) {
