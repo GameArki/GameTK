@@ -86,6 +86,10 @@ namespace NJM {
             ctx.pfCore.Follow_Set(ctx.cameraHandleID, targetPos, offset, xDamping, yDamping);
         }
 
+        public void Follow_ChangeTarget(Vector2 targetPos) {
+            ctx.pfCore.Follow_Update(ctx.cameraHandleID, targetPos);
+        }
+
         public void Effect_Shake(Vector2 amplitude, float frequency, float duration) {
             ctx.pfCore.Effect_Shake_Begin(ctx.cameraHandleID, amplitude, frequency, duration);
         }

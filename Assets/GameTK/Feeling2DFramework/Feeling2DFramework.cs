@@ -185,6 +185,10 @@ namespace NJM {
             return mainCamera;
         }
 
+        public void Camera_FollowChangeTarget(Vector2 targetPos) {
+            ctx.cameraModule.Follow_ChangeTarget(targetPos);
+        }
+
         public void Camera_FastForward(float dt) {
             ctx.cameraModule.FastForward(dt);
         }
