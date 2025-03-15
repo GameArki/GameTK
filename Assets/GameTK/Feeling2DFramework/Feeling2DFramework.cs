@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.InputSystem;
+using GameFunctions;
 using NJM.Template;
 using NJM.Framework_Feeling2D;
 using NJM.Modules_Sound;
@@ -223,6 +224,10 @@ namespace NJM {
 
         public void Camera_Orthographic_SetMultiplier(float mul) {
             ctx.cameraModule.Orthographic_SetMultiplier(mul);
+        }
+
+        public void Camera_Effect_ZoomIn(GFEasingEnum easingType, float multiplier, float duration, bool isAutoRestore, GFEasingEnum autoRestoreEasingType, float autoRestoreDuration, float autoRestoreDelay) {
+            ctx.cameraModule.Effect_ZoomIn(easingType, multiplier, duration, isAutoRestore, autoRestoreEasingType, autoRestoreDuration, autoRestoreDelay);
         }
         #endregion
 
