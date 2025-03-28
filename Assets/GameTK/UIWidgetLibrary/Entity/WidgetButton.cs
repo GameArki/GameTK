@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace NJM.UIApplication {
+namespace NJM {
 
     public class WidgetButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler {
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace NJM.UIApplication {
+namespace NJM {
 
     public enum WidgetDefaultSoundType {
         Select,
