@@ -1,6 +1,6 @@
 using System;
 
-namespace GameTK.Modules_Sound {
+namespace GameTK {
 
     public enum SoundLayerType {
         BGM_Core,
