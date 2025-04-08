@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d6c60b2ca111647ad45e8380e579c1, type: 3}
+  m_Script: {fileID: 11500000, guid: f2d6c60b2ca111647ad45e8380e579d2, type: 3}
   m_Name: So_InputPrompt_GameTK
   m_EditorClassIdentifier: 
   keyboard_pairs:
   - key: 
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: ' '
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: KB_None
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: a
     sprite: {fileID: 21300000, guid: f58ba3226b331c242a0fc47fdfbb677a, type: 3}
   - key: b
@@ -109,9 +109,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 852f57041f70e7241b22e2b0545ac112, type: 3}
   gamepad_genericPairs:
   - key: ' '
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: JS_NONE
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: start
     sprite: {fileID: 21300000, guid: a9e147c662c79f047b289667a4c1d17b, type: 3}
   - key: select
@@ -162,9 +162,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: a76ebaf11d827f64193dc588a89662c8, type: 3}
   gamepad_psPairs:
   - key: ' '
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: JS_NONE
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: start
     sprite: {fileID: 21300000, guid: dd894a8ea507bbd499f18bb1ffa84829, type: 3}
   - key: select
@@ -215,9 +215,9 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1b15ee366d592fe4c8dacbbe06d46435, type: 3}
   gamepad_nsPairs:
   - key: ' '
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: JS_NONE
-    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b877, type: 3}
   - key: start
     sprite: {fileID: 21300000, guid: f23ac1eb69114f7489d3f846b770b690, type: 3}
   - key: select
