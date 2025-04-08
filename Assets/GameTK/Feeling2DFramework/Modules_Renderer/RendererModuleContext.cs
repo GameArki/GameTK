@@ -1,6 +1,6 @@
 using System;
 
-namespace NJM.Modules_Renderer {
+namespace GameTK.Modules_Renderer {
 
     public class RendererModuleContext {
 

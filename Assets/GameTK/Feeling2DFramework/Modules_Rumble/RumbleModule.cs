@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using GameFunctions;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using NJM.Modules_Rumble;
+using GameTK.Modules_Rumble;
 
-namespace NJM {
+namespace GameTK {
 
     public class RumbleModule {
 
@@ -15,8 +15,8 @@ namespace NJM {
             ctx = new RumbleModuleContext();
         }
 
-        public void Inject(Gamepad gamepad, float rumbleIntensity) {
-            ctx.Inject(gamepad, rumbleIntensity);
+        public void Inject(float rumbleIntensity) {
+            ctx.Inject(rumbleIntensity);
         }
 
         public void Init() {
@@ -31,8 +31,8 @@ namespace NJM {
             ctx.isEnable = enable;
         }
 
-        public void Tick(float dt) {
-            var gamepad = ctx.gamepad;
+        public void Tick(Gamepad gamepad, float dt) {
+            ctx.gamepad = gamepad;
             TickRumble(ctx, dt, out float leftFreq, out float rightFreq);
             if (gamepad != null) {
                 // Switch 临时处理, 电机频率过高

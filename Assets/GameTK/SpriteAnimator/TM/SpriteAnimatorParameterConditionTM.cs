@@ -1,6 +1,6 @@
 using System;
 
-namespace GameClasses.SpriteAnimatorLib.Template {
+namespace GameTK.Library_SpriteAnimator {
 
     [Serializable]
     public struct SpriteAnimatorParameterConditionTM {

@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using NJM.Modules_Sound;
+using GameTK.Modules_Sound;
 
-namespace NJM {
+namespace GameTK {
 
     [CreateAssetMenu(fileName = "So_Sound_", menuName = "NJM/SoundSO")]
     public class SoundModuleSO : ScriptableObject {

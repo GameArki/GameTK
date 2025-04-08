@@ -1,0 +1,268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d6c60b2ca111647ad45e8380e579c1, type: 3}
+  m_Name: So_InputPrompt_GameTK
+  m_EditorClassIdentifier: 
+  keyboard_pairs:
+  - key: 
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: ' '
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: KB_None
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: a
+    sprite: {fileID: 21300000, guid: f58ba3226b331c242a0fc47fdfbb677a, type: 3}
+  - key: b
+    sprite: {fileID: 21300000, guid: e9cb57208e385654c8f9aea75b8ec73b, type: 3}
+  - key: c
+    sprite: {fileID: 21300000, guid: f7ef6d16ea1d44848be55ac15e144b83, type: 3}
+  - key: d
+    sprite: {fileID: 21300000, guid: f715bae8cb054ae428f343fa65ea3539, type: 3}
+  - key: e
+    sprite: {fileID: 21300000, guid: fa1c9c4180f327148886db5ba679fd52, type: 3}
+  - key: f
+    sprite: {fileID: 21300000, guid: 5572364feb556c241b0d68e5c439f5cd, type: 3}
+  - key: g
+    sprite: {fileID: 21300000, guid: cabd0feb6caa8ec43b7c3b91d36c50bf, type: 3}
+  - key: h
+    sprite: {fileID: 21300000, guid: 5f165c5b343ec3141b5ad263f9e0e4cc, type: 3}
+  - key: i
+    sprite: {fileID: 21300000, guid: 22e2e3ca52f2f5b4bbe682f03f745191, type: 3}
+  - key: j
+    sprite: {fileID: 21300000, guid: 9aba65de38d67be45b7c357bc482cf29, type: 3}
+  - key: k
+    sprite: {fileID: 21300000, guid: 4234abd1a64982743b9faa00216fe4e8, type: 3}
+  - key: l
+    sprite: {fileID: 21300000, guid: 40312283b84c87e4ea65e0a47db38214, type: 3}
+  - key: m
+    sprite: {fileID: 21300000, guid: 005e47a0d74943246bc57d76e49da10b, type: 3}
+  - key: n
+    sprite: {fileID: 21300000, guid: 21b3efa122d42844d908cfd18392982b, type: 3}
+  - key: o
+    sprite: {fileID: 21300000, guid: 8ab6a7299efc2694baa2f52f4e8d6267, type: 3}
+  - key: p
+    sprite: {fileID: 21300000, guid: 75bf1fce21583064a93a886d705981f6, type: 3}
+  - key: q
+    sprite: {fileID: 21300000, guid: 2739e53d5541a5b4fb6a8c5764934fa2, type: 3}
+  - key: r
+    sprite: {fileID: 21300000, guid: d1e9701738ac46744a80d25b1e24aadf, type: 3}
+  - key: s
+    sprite: {fileID: 21300000, guid: 6061d29352ce2824f9e033ac42a631c9, type: 3}
+  - key: t
+    sprite: {fileID: 21300000, guid: 0ad8d45b782f7ff4aae9cf36311cb7f4, type: 3}
+  - key: u
+    sprite: {fileID: 21300000, guid: b989390a63278334f86159ba990ed42e, type: 3}
+  - key: v
+    sprite: {fileID: 21300000, guid: 58914efa9f1748b45a1f1cf332a47370, type: 3}
+  - key: w
+    sprite: {fileID: 21300000, guid: bd3f74b6ac4709c49a3f68196d75e6b9, type: 3}
+  - key: x
+    sprite: {fileID: 21300000, guid: 7311334c450a477489c852a51cafe593, type: 3}
+  - key: y
+    sprite: {fileID: 21300000, guid: f45a23d128c2372418c6a3470a0e0455, type: 3}
+  - key: z
+    sprite: {fileID: 21300000, guid: 5b270d9733c59994c8a9f556d16fd844, type: 3}
+  - key: upArrow
+    sprite: {fileID: 21300000, guid: c4e88fd5e85daa148855e94cc0b16f3d, type: 3}
+  - key: downArrow
+    sprite: {fileID: 21300000, guid: 8b9dc09ee3eedb547920baef14f84ea8, type: 3}
+  - key: rightArrow
+    sprite: {fileID: 21300000, guid: 4be541a8bf7594c43aa88b76d7c7b220, type: 3}
+  - key: leftArrow
+    sprite: {fileID: 21300000, guid: 9de78b03171474f47a4a021efb4370ec, type: 3}
+  - key: space
+    sprite: {fileID: 21300000, guid: bcfeeb9ba60139b4292160c8f9d162e5, type: 3}
+  - key: escape
+    sprite: {fileID: 21300000, guid: 6a1590a2125ecb14b9eb40845c9c6e2d, type: 3}
+  - key: shift
+    sprite: {fileID: 21300000, guid: 0c9a9757183401f4787abf5303ec8ba0, type: 3}
+  - key: leftShift
+    sprite: {fileID: 21300000, guid: 0c9a9757183401f4787abf5303ec8ba0, type: 3}
+  - key: rightShift
+    sprite: {fileID: 21300000, guid: 0c9a9757183401f4787abf5303ec8ba0, type: 3}
+  - key: ctrl
+    sprite: {fileID: 21300000, guid: b32dc5a13ab45d34dad16603386ffd82, type: 3}
+  - key: leftCtrl
+    sprite: {fileID: 21300000, guid: b32dc5a13ab45d34dad16603386ffd82, type: 3}
+  - key: rightCtrl
+    sprite: {fileID: 21300000, guid: b32dc5a13ab45d34dad16603386ffd82, type: 3}
+  - key: tab
+    sprite: {fileID: 21300000, guid: eab7101b560616846a3e1a55d489ebfc, type: 3}
+  - key: capsLock
+    sprite: {fileID: 21300000, guid: 2c75e3787e7bc044488174230f028f4c, type: 3}
+  - key: alt
+    sprite: {fileID: 21300000, guid: 4ebb973c76661c04e8f004316bc8304d, type: 3}
+  - key: leftAlt
+    sprite: {fileID: 21300000, guid: 4ebb973c76661c04e8f004316bc8304d, type: 3}
+  - key: rightAlt
+    sprite: {fileID: 21300000, guid: 4ebb973c76661c04e8f004316bc8304d, type: 3}
+  - key: return
+    sprite: {fileID: 21300000, guid: 852f57041f70e7241b22e2b0545ac112, type: 3}
+  gamepad_genericPairs:
+  - key: ' '
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: JS_NONE
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: start
+    sprite: {fileID: 21300000, guid: a9e147c662c79f047b289667a4c1d17b, type: 3}
+  - key: select
+    sprite: {fileID: 21300000, guid: 1402df9c320581749923938b9f2702f5, type: 3}
+  - key: dpad/right
+    sprite: {fileID: 21300000, guid: a723ff5c3109f2444b11f51f84d533cd, type: 3}
+  - key: dpad/left
+    sprite: {fileID: 21300000, guid: 3721da9de94ff1541a9a4bdd4e7d99a9, type: 3}
+  - key: dpad/down
+    sprite: {fileID: 21300000, guid: 5579555bea670b44283f2936d4c3c636, type: 3}
+  - key: dpad/up
+    sprite: {fileID: 21300000, guid: d3d61d653e43bc2408dccf07e83943fb, type: 3}
+  - key: rightStickPress
+    sprite: {fileID: 21300000, guid: 16a6e5330f549d74e84e36745407f195, type: 3}
+  - key: rightStick/right
+    sprite: {fileID: 21300000, guid: 18a5bce8632352d4db3ae2ccec33ef6d, type: 3}
+  - key: rightStick/left
+    sprite: {fileID: 21300000, guid: e014aafe64eb8dd4bbb33d7ad3ffb28a, type: 3}
+  - key: rightStick/down
+    sprite: {fileID: 21300000, guid: a624bfce3a41e444581d225f30b18e37, type: 3}
+  - key: rightStick/up
+    sprite: {fileID: 21300000, guid: 2e9c80564bb2f654eaff49ac2122efd3, type: 3}
+  - key: leftStickPress
+    sprite: {fileID: 21300000, guid: 562c5df96249dab42b0e1855bb2159c3, type: 3}
+  - key: leftStick/right
+    sprite: {fileID: 21300000, guid: 3d0b0def342d06f4fa829b0b724c86c5, type: 3}
+  - key: leftStick/left
+    sprite: {fileID: 21300000, guid: 1be4f27ae9c3b924988a0f4995b55f3a, type: 3}
+  - key: leftStick/down
+    sprite: {fileID: 21300000, guid: 6bcddd52683acbd4f8f20dad44788678, type: 3}
+  - key: leftStick/up
+    sprite: {fileID: 21300000, guid: dccbb23825a00f14ebd8ab8f0559d06d, type: 3}
+  - key: rightTrigger
+    sprite: {fileID: 21300000, guid: 14328a07671c7584d8e390f1d4b5c0b8, type: 3}
+  - key: leftTrigger
+    sprite: {fileID: 21300000, guid: 050de5546489631438681a6c636d3744, type: 3}
+  - key: rightShoulder
+    sprite: {fileID: 21300000, guid: 99b24ca2cd9c70e4284249d638248a04, type: 3}
+  - key: leftShoulder
+    sprite: {fileID: 21300000, guid: e98992f6ad01e674296fdc23062ce80f, type: 3}
+  - key: buttonNorth
+    sprite: {fileID: 21300000, guid: 0ff003c12fc207d45bfff0827d3edd93, type: 3}
+  - key: buttonWest
+    sprite: {fileID: 21300000, guid: be59ed9067b6a9841a45cf92e08a64fc, type: 3}
+  - key: buttonEast
+    sprite: {fileID: 21300000, guid: 535c350af27fbf848af0a3d998ce140f, type: 3}
+  - key: buttonSouth
+    sprite: {fileID: 21300000, guid: a76ebaf11d827f64193dc588a89662c8, type: 3}
+  gamepad_psPairs:
+  - key: ' '
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: JS_NONE
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: start
+    sprite: {fileID: 21300000, guid: dd894a8ea507bbd499f18bb1ffa84829, type: 3}
+  - key: select
+    sprite: {fileID: 21300000, guid: 0349f7c7704d0f14a8899e8e8c25760f, type: 3}
+  - key: dpad/right
+    sprite: {fileID: 21300000, guid: cc6c0163efa0ce646a7b9a60650b966d, type: 3}
+  - key: dpad/left
+    sprite: {fileID: 21300000, guid: cef2392cc8503e24889868d4f9283570, type: 3}
+  - key: dpad/down
+    sprite: {fileID: 21300000, guid: 13061167ea54f1c47ad59782228eabb8, type: 3}
+  - key: dpad/up
+    sprite: {fileID: 21300000, guid: 7795e797b0c9a8c47a7443da8eaf5b0b, type: 3}
+  - key: rightStickPress
+    sprite: {fileID: 21300000, guid: 203045f4aaa948743ae090653474693d, type: 3}
+  - key: rightStick/right
+    sprite: {fileID: 21300000, guid: 02d06e808bd56fd40b964e4ecc1a9873, type: 3}
+  - key: rightStick/left
+    sprite: {fileID: 21300000, guid: facf8470a0701e4468b602d26cc7b42b, type: 3}
+  - key: rightStick/down
+    sprite: {fileID: 21300000, guid: c0ed9164280d24d42913ce6daf1fe5cd, type: 3}
+  - key: rightStick/up
+    sprite: {fileID: 21300000, guid: d3a29b87bdf30a74189ab18f538c548b, type: 3}
+  - key: leftStickPress
+    sprite: {fileID: 21300000, guid: f4a2001e0af33a94381a098c61d3542a, type: 3}
+  - key: leftStick/right
+    sprite: {fileID: 21300000, guid: aaf470331c4293644b1e1f604b1302f9, type: 3}
+  - key: leftStick/left
+    sprite: {fileID: 21300000, guid: e7ec07224eb67c54693c4df560d7b8c6, type: 3}
+  - key: leftStick/down
+    sprite: {fileID: 21300000, guid: 45af370cfff23da44a210766a43ad568, type: 3}
+  - key: leftStick/up
+    sprite: {fileID: 21300000, guid: 59153c9e9b6301244a0a7da94aa75dc9, type: 3}
+  - key: rightTrigger
+    sprite: {fileID: 21300000, guid: 63a3137fb123dba4f8c28467f3f20014, type: 3}
+  - key: leftTrigger
+    sprite: {fileID: 21300000, guid: 6e262bfc471a28a46b75dfafc0dee06d, type: 3}
+  - key: rightShoulder
+    sprite: {fileID: 21300000, guid: ea5470880b12d404286d73468f951a0b, type: 3}
+  - key: leftShoulder
+    sprite: {fileID: 21300000, guid: 93937da8eaec6d04a89406fdb8965227, type: 3}
+  - key: buttonNorth
+    sprite: {fileID: 21300000, guid: 1d6262a704d8dc944bb872aaa8dd226e, type: 3}
+  - key: buttonWest
+    sprite: {fileID: 21300000, guid: 94d746be9ceeeaf439d944abba8b0f20, type: 3}
+  - key: buttonEast
+    sprite: {fileID: 21300000, guid: a0228fc7c5d4468498044eef4a2f54bd, type: 3}
+  - key: buttonSouth
+    sprite: {fileID: 21300000, guid: 1b15ee366d592fe4c8dacbbe06d46435, type: 3}
+  gamepad_nsPairs:
+  - key: ' '
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: JS_NONE
+    sprite: {fileID: 21300000, guid: cf4409dab69ec2444baf1689ea45b888, type: 3}
+  - key: start
+    sprite: {fileID: 21300000, guid: f23ac1eb69114f7489d3f846b770b690, type: 3}
+  - key: select
+    sprite: {fileID: 21300000, guid: 174cf95444d709a47b95126b9108a079, type: 3}
+  - key: dpad/right
+    sprite: {fileID: 21300000, guid: 8ca2fc9b5e210374f8c0c21ff32ee7db, type: 3}
+  - key: dpad/left
+    sprite: {fileID: 21300000, guid: 347112eb3935c7046bc1c54bb326fb25, type: 3}
+  - key: dpad/down
+    sprite: {fileID: 21300000, guid: 89845ac1bc44a2047b23206b3e503bc1, type: 3}
+  - key: dpad/up
+    sprite: {fileID: 21300000, guid: 1ae2148e8ba320e40a663bbc2c25aa4d, type: 3}
+  - key: rightStickPress
+    sprite: {fileID: 21300000, guid: e366665acb4b8d744ac8f8c624475473, type: 3}
+  - key: rightStick/right
+    sprite: {fileID: 21300000, guid: b1629835cf85ddf4685942210bb56ff5, type: 3}
+  - key: rightStick/left
+    sprite: {fileID: 21300000, guid: 4e65a3c65ab615f4e971b7f3b4255aec, type: 3}
+  - key: rightStick/down
+    sprite: {fileID: 21300000, guid: 94dc130d48b373945bd8c804e42c48aa, type: 3}
+  - key: rightStick/up
+    sprite: {fileID: 21300000, guid: fa4a51741e838b44a89b3ebdc8ce4928, type: 3}
+  - key: leftStickPress
+    sprite: {fileID: 21300000, guid: 6b71b7beef4d6cc40ac144010d3b66f1, type: 3}
+  - key: leftStick/right
+    sprite: {fileID: 21300000, guid: 43521e9e2db250443a673f6bf9680faa, type: 3}
+  - key: leftStick/left
+    sprite: {fileID: 21300000, guid: c336608bfde569d42b5214113f0fc354, type: 3}
+  - key: leftStick/down
+    sprite: {fileID: 21300000, guid: 40a47188b06f00a43a64cc931dc34de7, type: 3}
+  - key: leftStick/up
+    sprite: {fileID: 21300000, guid: fb497232b2447614397e5013d059afea, type: 3}
+  - key: rightTrigger
+    sprite: {fileID: 21300000, guid: 7366bb4f95aca0d448d1bc1cb44685e7, type: 3}
+  - key: leftTrigger
+    sprite: {fileID: 21300000, guid: 9f8f4cbdcb7d2cf44aa499898bf7b369, type: 3}
+  - key: rightShoulder
+    sprite: {fileID: 21300000, guid: 05f72acf39714bc41bb5aec6476f5ab7, type: 3}
+  - key: leftShoulder
+    sprite: {fileID: 21300000, guid: e2b96bc1a6f842240a80afaa3cd67250, type: 3}
+  - key: buttonNorth
+    sprite: {fileID: 21300000, guid: 0a447edb2515492499750d35732e0d2d, type: 3}
+  - key: buttonWest
+    sprite: {fileID: 21300000, guid: 95be785a6aff74d4886a0ed7c1bd9383, type: 3}
+  - key: buttonEast
+    sprite: {fileID: 21300000, guid: 38ee8d74da39beb48ba7d8b07a72eaa9, type: 3}
+  - key: buttonSouth
+    sprite: {fileID: 21300000, guid: 6fc3939b74729dd4090f343a43b47d35, type: 3}

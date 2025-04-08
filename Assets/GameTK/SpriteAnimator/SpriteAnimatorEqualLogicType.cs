@@ -1,6 +1,6 @@
 using System;
 
-namespace GameClasses.SpriteAnimatorLib {
+namespace GameTK.Library_SpriteAnimator {
 
     [Flags]
     public enum SpriteAnimatorEqualLogicType {

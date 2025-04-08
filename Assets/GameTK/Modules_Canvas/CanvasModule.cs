@@ -2,8 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using GameTK.Modules_Canvas;
 
-namespace NJM.Modules_Canvas {
+namespace GameTK {
 
     public class CanvasModule : MonoBehaviour {
 

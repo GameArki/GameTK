@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace NJM {
+namespace GameTK {
 
     public class WidgetLeftRight : MonoBehaviour {
 

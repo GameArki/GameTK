@@ -4,9 +4,9 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using GameRenderer;
 using GameFunctions;
-using NJM.Modules_Renderer;
+using GameTK.Modules_Renderer;
 
-namespace NJM {
+namespace GameTK {
 
     public class RendererModule {
 

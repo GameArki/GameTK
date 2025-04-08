@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using NJM.Modules_Sound;
+using GameTK.Modules_Sound;
 
-namespace NJM {
+namespace GameTK {
 
     [Serializable]
     public struct SoundModuleTM {

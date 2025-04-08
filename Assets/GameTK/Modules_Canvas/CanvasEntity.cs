@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace NJM.Modules_Canvas {
+namespace GameTK.Modules_Canvas {
 
     public class CanvasEntity : MonoBehaviour {
 

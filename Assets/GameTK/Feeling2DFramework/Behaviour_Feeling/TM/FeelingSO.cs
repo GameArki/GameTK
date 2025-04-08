@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace NJM.Template {
+namespace GameTK {
 
     [CreateAssetMenu(fileName = "So_Feeling_", menuName = "NJM/Feeling", order = 1)]
     public class FeelingSO : ScriptableObject {

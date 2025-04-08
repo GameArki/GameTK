@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace NJM {
+namespace GameTK {
 
     public struct SoundModuleUpdateArgs {
 

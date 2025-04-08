@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using GameFunctions;
-using NJM.Modules_Sound;
+using GameTK.Modules_Sound;
 
-namespace NJM {
+namespace GameTK {
 
     public class SoundModule {
 

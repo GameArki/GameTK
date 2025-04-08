@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace NJM.Modules_VFX {
+namespace GameTK.Modules_VFX {
 
     public class VFXModuleEvents {
 

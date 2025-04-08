@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using TriInspector;
 
-namespace NJM {
+namespace GameTK {
 
     public class VFXModuleSM : MonoBehaviour {
 

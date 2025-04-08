@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace GameClasses.SpriteAnimatorLib.Template {
+namespace GameTK.Library_SpriteAnimator {
 
     [CreateAssetMenu(fileName = "So_Animator_", menuName = "GameTK/SpriteAnimator")]
     public class SpriteAnimatorSO : ScriptableObject {

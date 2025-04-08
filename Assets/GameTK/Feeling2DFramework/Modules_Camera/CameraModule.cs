@@ -1,8 +1,8 @@
 using UnityEngine;
 using GameFunctions;
-using NJM.Modules_Camera;
+using GameTK.Modules_Camera;
 
-namespace NJM {
+namespace GameTK {
 
     public class CameraModule {
 

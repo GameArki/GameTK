@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace NJM {
+namespace GameTK {
 
     public class WidgetButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler {
 

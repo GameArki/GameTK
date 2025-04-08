@@ -3,9 +3,8 @@ using System;
 using UnityEngine;
 using UnityEditor;
 using TriInspector;
-using GameClasses.SpriteAnimatorLib.Template;
 
-namespace GameClasses.SpriteAnimatorLib.Editor {
+namespace GameTK.Library_SpriteAnimator.Editor {
 
     public class SpriteAnimatorEM : MonoBehaviour {
 

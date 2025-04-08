@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace GameClasses.SpriteAnimatorLib.Template {
+namespace GameTK.Library_SpriteAnimator {
 
     [Serializable]
     public struct SpriteAnimatorStateTM {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using GameClasses.Camera2DLib;
 
-namespace NJM.Modules_Camera {
+namespace GameTK.Modules_Camera {
 
     public class CameraContext {
 

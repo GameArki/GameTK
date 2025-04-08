@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
-using NJM.Modules_VFX;
-using NJM.Modules_Sound;
-using NJM.Modules_Renderer;
-using NJM.Modules_Camera;
+using GameTK.Modules_VFX;
+using GameTK.Modules_Sound;
+using GameTK.Modules_Renderer;
+using GameTK.Modules_Camera;
 
-namespace NJM.Framework_Feeling2D {
+namespace GameTK.Framework_Feeling2D {
 
     public class Feeling2DFrameworkContext {
 

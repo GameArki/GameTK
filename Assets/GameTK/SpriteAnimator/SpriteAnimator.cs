@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TriInspector;
-using GameClasses.SpriteAnimatorLib.Template;
 
-namespace GameClasses.SpriteAnimatorLib {
+namespace GameTK.Library_SpriteAnimator {
 
     [Serializable]
     public class SpriteAnimator {

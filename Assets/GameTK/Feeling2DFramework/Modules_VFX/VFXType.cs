@@ -1,4 +1,4 @@
-namespace NJM {
+namespace GameTK {
 
     public enum VFXType {
         None,

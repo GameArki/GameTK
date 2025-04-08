@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace NJM.Modules_Canvas {
+namespace GameTK.Modules_Canvas {
 
     public class CanvasModuleContext {
 

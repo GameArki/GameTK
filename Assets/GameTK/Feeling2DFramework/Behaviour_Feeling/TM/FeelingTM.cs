@@ -3,9 +3,9 @@ using System.Reflection;
 using UnityEngine;
 using TriInspector;
 using GameFunctions;
-using NJM.Modules_Sound;
+using GameTK.Modules_Sound;
 
-namespace NJM.Template {
+namespace GameTK {
 
     [Serializable]
     public struct FeelingTM {

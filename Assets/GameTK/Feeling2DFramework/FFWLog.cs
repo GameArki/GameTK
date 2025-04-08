@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace NJM.Framework_Feeling2D {
+namespace GameTK.Framework_Feeling2D {
 
     internal static class FFWLog {
 

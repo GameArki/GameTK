@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace NJM.Modules_VFX {
+namespace GameTK.Modules_VFX {
 
     public class VFXModuleTemplate {
 

@@ -1,6 +1,6 @@
 using GameFunctions;
 
-namespace NJM.Modules_Rumble {
+namespace GameTK.Modules_Rumble {
 
     internal static class RumbleModuleFactory {
 

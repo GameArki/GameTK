@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace NJM.Modules_Rumble {
+namespace GameTK.Modules_Rumble {
 
     internal class RumbleModuleContext {
 
@@ -29,8 +29,7 @@ namespace NJM.Modules_Rumble {
             allTasktemp = new RumbleModuleTaskModel[20];
         }
 
-        public void Inject(Gamepad gamepad, float rumbleIntensity) {
-            this.gamepad = gamepad;
+        public void Inject(float rumbleIntensity) {
             this.rumbleIntensity = rumbleIntensity;
         }
 

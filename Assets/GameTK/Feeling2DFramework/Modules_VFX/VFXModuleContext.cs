@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NJM.Modules_VFX {
+namespace GameTK.Modules_VFX {
 
     public class VFXModuleContext {
 

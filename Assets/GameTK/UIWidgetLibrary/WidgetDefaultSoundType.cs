@@ -1,6 +1,6 @@
 using System;
 
-namespace NJM {
+namespace GameTK {
 
     public enum WidgetDefaultSoundType {
         Select,

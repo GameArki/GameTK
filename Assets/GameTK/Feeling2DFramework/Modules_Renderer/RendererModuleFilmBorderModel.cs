@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using GameFunctions;
 
-namespace NJM.Modules_Renderer {
+namespace GameTK.Modules_Renderer {
 
     public class RendererModuleFilmBorderModel {
 

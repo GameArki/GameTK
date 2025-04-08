@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace NJM.Modules_Sound {
+namespace GameTK.Modules_Sound {
 
     public class SoundModuleTemplate {
 

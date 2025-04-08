@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-namespace NJM {
+namespace GameTK {
 
     public class WidgetVideo : MonoBehaviour {
         [SerializeField] VideoPlayer videoPlayer;

@@ -1,7 +1,7 @@
 using System;
 using GameFunctions;
 
-namespace NJM {
+namespace GameTK {
 
     internal class RumbleModuleEntity {
 

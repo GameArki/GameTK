@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using NJM.Modules_VFX;
+using GameTK.Modules_VFX;
 
-namespace NJM {
+namespace GameTK {
 
     public class VFXModule {
 

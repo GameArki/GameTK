@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameFunctions;
 
-namespace NJM {
+namespace GameTK {
 
     [Serializable]
     public struct FeelingModel {
@@ -57,7 +57,7 @@ namespace NJM {
         public bool hasRumble;
         public RumbleTM[] rumbles;
 
-        public void FromTM(in Template.FeelingTM tm) {
+        public void FromTM(in FeelingTM tm) {
 
             hasPPShake = tm.hasPPShake;
             ppShakeDuration = tm.ppShakeDuration;

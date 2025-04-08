@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NJM.Modules_Sound {
+namespace GameTK.Modules_Sound {
 
     public class SoundModuleProcessEntity {
 

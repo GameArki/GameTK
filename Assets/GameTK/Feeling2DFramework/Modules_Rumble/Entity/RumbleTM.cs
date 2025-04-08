@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using GameFunctions;
 using UnityEngine;
 
-namespace NJM {
+namespace GameTK {
 
     [Serializable]
     public struct RumbleTM {

@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.InputSystem;
 using GameFunctions;
-using NJM.Template;
-using NJM.Framework_Feeling2D;
-using NJM.Modules_Sound;
+using GameTK.Framework_Feeling2D;
+using GameTK.Modules_Sound;
 
-namespace NJM {
+namespace GameTK {
 
     // Step:
     // 0. Binding MonoBehaviour
@@ -49,7 +48,7 @@ namespace NJM {
             };
         }
 
-        public void Inject(Gamepad gamepad) {
+        public void Inject() {
 
             ctx.cameraModule.Inject(mainCamera, otherCameras);
 
@@ -59,7 +58,7 @@ namespace NJM {
 
             ctx.rendererModule.Inject(globalVolume);
 
-            ctx.rumbleModule.Inject(gamepad, rumbleIntensity);
+            ctx.rumbleModule.Inject(rumbleIntensity);
 
         }
 
@@ -72,12 +71,12 @@ namespace NJM {
             ctx.rumbleModule.Init();
         }
 
-        public void Tick(SoundModuleUpdateArgs soundModuleUpdateArgs, Vector2 cameraTargetPos, float dt) {
+        public void Tick(SoundModuleUpdateArgs soundModuleUpdateArgs, Vector2 cameraTargetPos, Gamepad gamepad, float dt) {
             ctx.soundModule.Tick(soundModuleUpdateArgs, dt);
             ctx.cameraModule.Tick(cameraTargetPos, dt);
             ctx.rendererModule.Tick(dt);
             ctx.vfxModule.Tick(dt);
-            ctx.rumbleModule.Tick(dt);
+            ctx.rumbleModule.Tick(gamepad, dt);
         }
 
         public void TearDown() {

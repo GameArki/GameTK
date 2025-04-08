@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace NJM.Modules_Canvas {
+namespace GameTK.Modules_Canvas {
 
     public class CursorEntity {
 

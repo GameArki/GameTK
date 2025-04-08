@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameFunctions;
 
-namespace NJM.Modules_VFX {
+namespace GameTK.Modules_VFX {
 
     public class VFXModuleRepo {
 

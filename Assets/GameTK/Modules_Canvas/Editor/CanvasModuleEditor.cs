@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace NJM.Modules_Canvas.Editor {
+namespace GameTK.Modules_Canvas.Editor {
 
     public static class CanvasModuleEditor {
 
