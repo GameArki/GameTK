@@ -1,0 +1,17 @@
+{
+    "name": "GameTK.CodeSample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4d0d4ca1848f142478a17e0c997fc17b",
+        "GUID:324caed91501a9c47a04ebfd87b68794"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
