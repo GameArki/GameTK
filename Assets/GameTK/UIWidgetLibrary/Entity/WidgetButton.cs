@@ -20,6 +20,34 @@ namespace GameTK {
             }
         }
 
+        public void Anim_Normal() {
+            Button button = GetComponentInChildren<Button>();
+            if (button != null) {
+                button.animator.SetTrigger("Normal");
+            } else {
+                Debug.LogWarning("Button component not found in children.");
+            }
+        }
+
+        public void Anim_Pressed() {
+            Button button = GetComponentInChildren<Button>();
+            if (button != null) {
+                button.animator.SetTrigger("Pressed");
+            } else {
+                Debug.LogWarning("Button component not found in children.");
+            }
+        }
+
+        public void Anim_Disabled() {
+            Button button = GetComponentInChildren<Button>();
+            if (button != null) {
+                button.interactable = false;
+                button.animator.SetTrigger("Disabled");
+            } else {
+                Debug.LogWarning("Button component not found in children.");
+            }
+        }
+
         public void SetText(string text, int additionWidth = 0) {
             TextMeshProUGUI tmp = GetComponentInChildren<TextMeshProUGUI>();
             if (tmp != null) {

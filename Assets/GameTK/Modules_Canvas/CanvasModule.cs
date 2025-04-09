@@ -154,7 +154,7 @@ namespace GameTK {
             }
         }
 
-        public void Canvas_SetCameraAll(CanvasModuleRootLayer layer, Camera camera) {
+        public void Canvas_SetCameraAll(Camera camera) {
             foreach (var entity in ctx.canvases.Values) {
                 entity.SetCamera(camera);
             }
