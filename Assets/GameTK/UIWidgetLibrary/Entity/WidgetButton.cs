@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 namespace GameTK {
 
@@ -9,6 +11,30 @@ namespace GameTK {
         public Action OnSelectHandle;
         public Action OnDeselectHandle;
 
+        public void Select() {
+            Button button = GetComponentInChildren<Button>();
+            if (button != null) {
+                button.Select();
+            } else {
+                Debug.LogWarning("Button component not found in children.");
+            }
+        }
+
+        public void SetText(string text, int additionWidth = 0) {
+            TextMeshProUGUI tmp = GetComponentInChildren<TextMeshProUGUI>();
+            if (tmp != null) {
+                tmp.text = text;
+
+                if (additionWidth != 0) {
+                    float btnWidth = tmp.preferredWidth + additionWidth;
+                    var rect = GetComponent<RectTransform>();
+                    Vector2 oldSize = rect.sizeDelta;
+                    rect.sizeDelta = new Vector2(btnWidth, oldSize.y);
+                }
+            }
+        }
+
+        #region Events
         void ISelectHandler.OnSelect(BaseEventData eventData) {
             OnSelectHandle?.Invoke();
             WidgetUtil.Sound_PlaySelect();
@@ -26,7 +52,8 @@ namespace GameTK {
             OnSelectHandle = null;
             OnDeselectHandle = null;
         }
-        
+        #endregion
+
     }
 
 }
