@@ -15,6 +15,9 @@ namespace GameTK {
             Button button = GetComponentInChildren<Button>();
             if (button != null) {
                 button.Select();
+                if (button.animator != null) {
+                    button.animator.SetTrigger("Selected");
+                }
             } else {
                 Debug.LogWarning("Button component not found in children.");
             }
@@ -23,7 +26,9 @@ namespace GameTK {
         public void Anim_Normal() {
             Button button = GetComponentInChildren<Button>();
             if (button != null) {
-                button.animator.SetTrigger("Normal");
+                if (button.animator != null) {
+                    button.animator.SetTrigger("Normal");
+                }
             } else {
                 Debug.LogWarning("Button component not found in children.");
             }
@@ -32,7 +37,9 @@ namespace GameTK {
         public void Anim_Pressed() {
             Button button = GetComponentInChildren<Button>();
             if (button != null) {
-                button.animator.SetTrigger("Pressed");
+                if (button.animator != null) {
+                    button.animator.SetTrigger("Pressed");
+                }
             } else {
                 Debug.LogWarning("Button component not found in children.");
             }
@@ -42,7 +49,9 @@ namespace GameTK {
             Button button = GetComponentInChildren<Button>();
             if (button != null) {
                 button.interactable = false;
-                button.animator.SetTrigger("Disabled");
+                if (button.animator != null) {
+                    button.animator.SetTrigger("Disabled");
+                }
             } else {
                 Debug.LogWarning("Button component not found in children.");
             }
