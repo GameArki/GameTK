@@ -9,6 +9,7 @@ namespace GameTK {
         // ==== Events ====
         public static Func<float> onVolumeGetterHandle;
         public static Func<AudioSource> onAudioSourceGetterHandle;
+        public static Func<Camera> onUICameraGetterHandle;
 
         static Dictionary<WidgetDefaultSoundType, AudioClip> defaultSoundDict;
         static Dictionary<int, AudioClip> customSoundDict;
@@ -16,6 +17,13 @@ namespace GameTK {
         public static void Setup() {
             defaultSoundDict = new Dictionary<WidgetDefaultSoundType, AudioClip>();
             customSoundDict = new Dictionary<int, AudioClip>();
+        }
+
+        public static Camera GetUICamera() {
+            if (onUICameraGetterHandle == null) {
+                return null;
+            }
+            return onUICameraGetterHandle.Invoke();
         }
 
         public static void RegisterDefaultSound(WidgetDefaultSoundType type, AudioClip clip) {
