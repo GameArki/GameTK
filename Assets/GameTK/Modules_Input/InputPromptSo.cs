@@ -10,8 +10,16 @@
 #define PS5_HID_ENABLE
 #endif
 
+#if !UNITY_SWITCH && !UNITY_STANDALONE_LINUX
+#define PS4_GAMEPAD_ENABLE
+#endif
+
+#if UNITY_STANDALONE_LINUX
+#define PS4_GAMEPAD_ENABLE_LINUX
+#endif
+
 #if !UNITY_SWITCH
-#define PS4_AND_XBOX_CONTROLLER_ENABLE
+#define XBOX_GAMEPAD_ENABLE
 #endif
 
 using System;
@@ -146,8 +154,14 @@ namespace GameTK {
                 return succ;
             }
 #endif
-#if PS4_AND_XBOX_CONTROLLER_ENABLE
+#if PS4_GAMEPAD_ENABLE
             if (inputDevice is DualShockGamepad || inputDevice is DualShock3GamepadHID || inputDevice is DualShock4GamepadHID) {
+                succ = dictGamepad_PS.TryGetValue(keyPath, out spr);
+                return succ;
+            }
+#endif
+#if PS4_GAMEPAD_ENABLE_LINUX
+            if (inputDevice is DualShockGamepad || inputDevice.name.Contains("DualShock3") || inputDevice.name.Contains("DualShock4")) {
                 succ = dictGamepad_PS.TryGetValue(keyPath, out spr);
                 return succ;
             }
@@ -158,11 +172,13 @@ namespace GameTK {
                 return succ;
             }
 #endif
+#if XBOX_GAMEPAD_ENABLE
             if (inputDevice is Gamepad || inputDevice is XInputController) {
                 succ = dictGamepad_Generic.TryGetValue(keyPath, out spr);
-            } else {
-                succ = dictGamepad_Generic.TryGetValue(keyPath, out spr);
+                return succ;
             }
+#endif
+            succ = dictGamepad_Generic.TryGetValue(keyPath, out spr);
             return succ;
         }
 
@@ -178,31 +194,49 @@ namespace GameTK {
                 return true;
             }
 
-#if PS4_AND_XBOX_CONTROLLER_ENABLE
+#if PS4_GAMEPAD_ENABLE
             if (device is DualShockGamepad || device is DualShock3GamepadHID || device is DualShock4GamepadHID) {
                 keyPath = KeyPathConst.JS_South;
                 return true;
             }
 #endif
+
+#if PS4_GAMEPAD_ENABLE
+            if (device is DualShockGamepad || device is DualShock3GamepadHID || device is DualShock4GamepadHID) {
+                keyPath = KeyPathConst.JS_South;
+                return true;
+            }
+#endif
+
+#if PS4_GAMEPAD_ENABLE_LINUX
+            if (device is DualShockGamepad || device.name.Contains("DualShock3") || device.name.Contains("DualShock4")) {
+                keyPath = KeyPathConst.JS_South;
+                return true;
+            }
+#endif
+
 #if SWITCH_PRO_HID_ENABLE
             if (device is SwitchProControllerHID) {
                 keyPath = KeyPathConst.JS_South;
                 return true;
             }
 #endif
+
 #if PS5_HID_ENABLE
             if (device is DualSenseGamepadHID || device.name.Contains("DualSense")) {
                 keyPath = KeyPathConst.JS_South;
                 return true;
             }
 #endif
+
+#if XBOX_GAMEPAD_ENABLE
             if (device is Gamepad || device is XInputController) {
                 keyPath = KeyPathConst.JS_East;
                 return true;
-            } else {
-                keyPath = KeyPathConst.JS_East;
-                return true;
             }
+#endif
+            keyPath = KeyPathConst.JS_East;
+            return true;
         }
 
         public bool TryGetSubmitKeyPath(InputDevice device, out string keyPath) {
@@ -224,25 +258,35 @@ namespace GameTK {
                 keyPath = KeyPathConst.KB_ENTER;
                 return true;
             }
-#if PS4_AND_XBOX_CONTROLLER_ENABLE
+#if PS4_GAMEPAD_ENABLE
             if (device is DualShockGamepad || device is DualShock3GamepadHID || device is DualShock4GamepadHID) {
                 keyPath = KeyPathConst.JS_East;
                 return true;
             }
 #endif
+
+#if PS4_GAMEPAD_ENABLE_LINUX
+            if (device is DualShockGamepad || device.name.Contains("DualShock3") || device.name.Contains("DualShock4")) {
+                keyPath = KeyPathConst.JS_East;
+                return true;
+            }
+#endif
+
 #if PS5_HID_ENABLE
             if (device is DualSenseGamepadHID || device.name.Contains("DualSense")) {
                 keyPath = KeyPathConst.JS_East;
                 return true;
             }
 #endif
+
+#if XBOX_GAMEPAD_ENABLE
             if (device is Gamepad || device is XInputController) {
                 keyPath = KeyPathConst.JS_South;
                 return true;
-            } else {
-                keyPath = KeyPathConst.JS_South;
-                return true;
             }
+#endif
+            keyPath = KeyPathConst.JS_South;
+            return true;
         }
 
         public bool TryGet(string keyPath, InputDevice inputDevice, out Sprite spr) {
