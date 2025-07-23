@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using GameFunctions;
 using GameTK.Modules_Sound;
@@ -22,8 +22,12 @@ namespace GameTK {
             ctx.Inject(new GameObject("SoundPoolRoot").transform);
         }
 
-        public async Task InitAsync() {
-            await ctx.template.LoadAll();
+        public IEnumerator InitIE() {
+            yield return ctx.template.LoadAllIE();
+        }
+
+        public void Release() {
+            ctx.template.Release();
         }
 
         public void TearDown_ButBGM() {

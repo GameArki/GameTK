@@ -1,5 +1,5 @@
 using System;
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.InputSystem;
@@ -62,13 +62,18 @@ namespace GameTK {
 
         }
 
-        public async Task InitAsync(int enum_logLevel) {
+        public IEnumerator InitIE(int enum_logLevel) {
             FFWLog.logLevel = enum_logLevel;
             ctx.cameraModule.Init();
-            await ctx.soundModule.InitAsync();
-            await ctx.vfxModule.InitAsync();
+            yield return ctx.soundModule.InitIE();
+            yield return ctx.vfxModule.InitIE();
             ctx.rendererModule.Init();
             ctx.rumbleModule.Init();
+        }
+
+        public void Release() {
+            ctx.soundModule.Release();
+            ctx.vfxModule.Release();
         }
 
         public void Tick(SoundModuleUpdateArgs soundModuleUpdateArgs, Vector2 cameraTargetPos, Gamepad gamepad, float dt) {

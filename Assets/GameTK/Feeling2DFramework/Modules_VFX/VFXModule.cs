@@ -1,6 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 using GameTK.Modules_VFX;
 
@@ -23,12 +22,16 @@ namespace GameTK {
             ctx.poolRoot = new GameObject("VFXPoolRoot").transform;
         }
 
-        public async Task InitAsync() {
-            await ctx.template.LoadAll();
+        public IEnumerator InitIE() {
+            yield return ctx.template.LoadAllIE();
 
             ctx.template.Foreach((VFXModuleSM sm) => {
                 ctx.poolService.InitVFXSequence(sm.typeGroup, sm.typeID, 6, () => VFXModuleFactory.VFX_New(ctx, sm.typeGroup, sm.typeID));
             });
+        }
+
+        public void Release() {
+            ctx.template.Relase();
         }
 
         #region Lifecycle

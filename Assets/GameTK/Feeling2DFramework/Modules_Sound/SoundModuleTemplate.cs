@@ -1,5 +1,5 @@
 using System;
-using System.Threading.Tasks;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,25 +10,29 @@ namespace GameTK.Modules_Sound {
     public class SoundModuleTemplate {
 
         Dictionary<ulong, SoundModuleSO> all;
+        AsyncOperationHandle handle;
 
         public SoundModuleTemplate() {
             all = new Dictionary<ulong, SoundModuleSO>();
         }
 
-        public async Task LoadAll() {
-            try {
-                const string LABEL = "Sound";
-                var asyncOperationHandle = Addressables.LoadAssetsAsync<SoundModuleSO>(LABEL, null);
-                var list = await asyncOperationHandle.Task;
-                foreach (var item in list) {
-                    ulong key = GetKey(item.tm.typeGroup, item.tm.typeID);
-                    all.Add(key, item);
-                }
-                Addressables.Release(asyncOperationHandle);
-            } catch (InvalidKeyException) {
+        public IEnumerator LoadAllIE() {
+            const string LABEL = "Sound";
+            var handle = Addressables.LoadAssetsAsync<SoundModuleSO>(LABEL, null);
+            while (!handle.IsDone) {
+                yield return null;
+            }
+            var list = handle.Result;
+            foreach (var item in list) {
+                ulong key = GetKey(item.tm.typeGroup, item.tm.typeID);
+                all.Add(key, item);
+            }
+            this.handle = handle;
+        }
 
-            } catch (Exception e) {
-                Debug.LogError(e);
+        public void Release() {
+            if (handle.IsValid()) {
+                Addressables.Release(handle);
             }
         }
 
