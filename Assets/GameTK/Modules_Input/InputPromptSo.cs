@@ -3,7 +3,7 @@
 #define SWITCH_ENABLE
 #endif
 
-#if SWITCH_ENABLE || (!UNITY_STANDALONE_LINUX)
+#if SWITCH_ENABLE
 #define SWITCH_PRO_HID_ENABLE
 #endif
 
