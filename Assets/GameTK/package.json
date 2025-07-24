@@ -1,6 +1,6 @@
 {
   "name": "com.gamearki.gametk",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "Toolkit式框架\r\n依赖: TriInspector、GameArki.GameFunctions",
   "displayName": "GameArki.GameTK",
   "unity": "2022.3",
